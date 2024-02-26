@@ -1,0 +1,84 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,lmargin=3cm,rmargin=3cm}
+\setlength{\parindent}{0bp}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem{prop}[thm]{\protect\propositionname}
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{cor}[thm]{\protect\corollaryname}
+\theoremstyle{definition}
+\newtheorem{example}[thm]{\protect\examplename}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{\protect\remarkname}
+\theoremstyle{plain}
+\newtheorem{conjecture}[thm]{\protect\conjecturename}
+
+\makeatother
+
+\providecommand{\conjecturename}{Conjecture}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\remarkname}{Remark}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\title{Title}
+\maketitle
+\begin{abstract}
+...
+\end{abstract}
+
+\section{Introduction}
+
+\section{Polyhedral....}
+
+Let $\mathcal{K}$ be a finite set of indices.
+\begin{defn}
+	For each $k\in\mathcal{K}$, let $\widehat{\phi}_{k}:\mathbb{R}^{3}\times\mathbb{R}\rightarrow\mathbb{R}$
+	be the function defined by
+	\[
+	\widehat{\phi}_{k}\left(x,t\right)\coloneqq x\cdot n_{k}\left(t\right)-a_{k}\left(t\right),
+	\]
+	where $n_{k}:\mathbb{R}\rightarrow S^{2}$ and $a_{k}:\mathbb{R}\rightarrow\mathbb{R}$
+	are $C^{\infty}$ functions. For each $k\in\mathcal{K}$ and $t\in\mathbb{R}$,
+	let $\omega_{k}\left(t\right)$ be the affine set defined by
+	\[
+	\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{3}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
+	\]
+	For each $t\in\mathbb{R}$, let $\Omega_{t}$ be the convex set of
+	$\mathbb{R}^{3}$ defined by
+	\[
+	\Omega_{t}\coloneqq\bigcap_{k\in\mathcal{K}}\omega_{k}\left(t\right).
+	\]
+\end{defn}
+
+
+\section{Numerical tests}
+
+\section{Conclusions}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+\section*{Appendix}
+\end{document}
