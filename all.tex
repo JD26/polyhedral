@@ -232,23 +232,31 @@ Setting $x=w\in\mathcal{V}$ it follows that $\alpha_{w}=\alpha_{w}b_{w}\left(w\r
 
 \section{Polyhedral domain and deformation function}
 
-$S^{n-1}=\left\{ x\in\mathbb{R}^{n}\mid\left\Vert x\right\Vert =1\right\} $
-is the unit $\left(n-1\right)$-sphere.
+$S^{d-1}=\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
+is the unit $\left(d-1\right)$-sphere.
 
 Let $\mathcal{K}$ be a finite set of indices.
 \begin{defn}
-For each $k\in\in\mathcal{K}$, let $\widehat{\phi}_{k}:\mathbb{R}^{n}\times\mathbb{R}\rightarrow\mathbb{R}$
+For each $k\in\mathcal{K}$, let $\widehat{\phi}_{k}:\mathbb{R}^{d}\times\mathbb{R}\rightarrow\mathbb{R}$
 be the function defined by
 \[
 \widehat{\phi}_{k}\left(x,t\right)\coloneqq x\cdot n_{k}\left(t\right)-a_{k}\left(t\right),
 \]
-where $n_{k}:\mathbb{R}\rightarrow S^{n-1}$ and $a_{k}:\mathbb{R}\rightarrow\mathbb{R}$
-are arbitrary $C^{\infty}$ functions. For each $k\in\mathcal{K}$
-and $t\in\mathbb{R}$, let $\omega_{k}\left(t\right)$ be the affine
-set defined by
+where $n_{k}:\mathbb{R}\rightarrow S^{d-1}$ and $a_{k}:\mathbb{R}\rightarrow\mathbb{R}$
+are arbitrary $C^{\infty}$ functions.
+\end{defn}
+%
+\begin{defn}
+For each $k\in\mathcal{K}$ and $t\in\mathbb{R}$, let $\omega_{k}\left(t\right)$
+be the affine set defined by
 \[
-\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{n}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
+\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
 \]
+Note that $\omega_{k}\left(t\right)$ is one of the two open half-spaces
+determined by the plane $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $.
+\end{defn}
+%
+\begin{defn}
 For each $t\in\mathbb{R}$, let $\Omega_{t}$ be the convex set of
 $\mathbb{R}^{n}$ defined by
 \[
@@ -256,8 +264,6 @@ $\mathbb{R}^{n}$ defined by
 \]
 \end{defn}
 %
-Note that $\omega_{k}\left(t\right)$ is one of the two open half-spaces
-determined by the plane $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $.
 Denote $n_{k}\coloneqq n_{k}\left(0\right)$, $a_{k}\coloneqq a_{k}\left(0\right)$,
 $\widehat{\phi}_{k}\left(\cdot\right)\coloneqq\widehat{\phi}_{k}\left(\cdot,0\right)$
 $\omega_{k}\coloneqq\omega_{k}\left(0\right)$, $\Omega\coloneqq\Omega_{0}$.
@@ -324,7 +330,7 @@ can write
 
 \begin{prop}
 $\exists$ $\tau>0$ such that $\forall$ $v\in\mathcal{V}$ $\exists!$
-$z_{v}:\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{3}$ satisfying
+$z_{v}:\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$ satisfying
 $z_{v}\left(0\right)=v$ and
 \[
 \partial\omega_{i}\left(t\right)\cap\partial\omega_{j}\left(t\right)\cap\partial\omega_{k}\left(t\right)=\left\{ z_{v}\left(t\right)\right\} \quad\forall\;t\in\left(-\tau,\tau\right),
@@ -554,9 +560,16 @@ $f_{k}\coloneqq f_{k}\left(0\right)$ and $\Omega\coloneqq\Omega_{0}$.
 D
 \end{defn}
 \begin{thm}
-There exist a smooth function $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{3}$
-such that $T\left(\cdot,t\right)=\partial\Omega$ and $T\left(\cdot,t\right)$
-is bijective.
+There exist $\tau>0$ and a $C^{\infty}$ mapping $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
+satisfying $T\left(\Omega,t\right)=\Omega_{t}$, $T\left(\partial\Omega,t\right)=\partial\Omega_{t}$
+and such that $T\left(\cdot,t\right):\overline{\Omega}\rightarrow\overline{\Omega_{t}}$
+is bi-Lipschitz for all $t\in\left(-\tau,\tau\right)$. Furthermore,
+we have
+\begin{equation}
+\theta\left(x\right)\cdot\nu\left(x\right)=\dot{a}_{k}\left(0\right)-x\cdot\dot{n}_{k}\left(0\right)\quad\forall\;x\in\mathrm{int}\,\partial\omega_{k}\cap\overline{\Omega},
+\end{equation}
+where $\theta\coloneqq\partial_{t}T\left(\cdot,0\right)$ and $\nu$
+is the outward unit normal vector to $\Omega$.
 \end{thm}
 %
 \begin{proof}

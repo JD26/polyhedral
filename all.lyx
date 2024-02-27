@@ -1143,11 +1143,11 @@ Polyhedral domain and deformation function
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $S^{n-1}=\left\{ x\in\mathbb{R}^{n}\mid\left\Vert x\right\Vert =1\right\} $
+\begin_inset Formula $S^{d-1}=\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
 \end_inset
 
  is the unit 
-\begin_inset Formula $\left(n-1\right)$
+\begin_inset Formula $\left(d-1\right)$
 \end_inset
 
 -sphere.
@@ -1163,11 +1163,11 @@ Let
 
 \begin_layout Definition
 For each 
-\begin_inset Formula $k\in\in\mathcal{K}$
+\begin_inset Formula $k\in\mathcal{K}$
 \end_inset
 
 , let 
-\begin_inset Formula $\widehat{\phi}_{k}:\mathbb{R}^{n}\times\mathbb{R}\rightarrow\mathbb{R}$
+\begin_inset Formula $\widehat{\phi}_{k}:\mathbb{R}^{d}\times\mathbb{R}\rightarrow\mathbb{R}$
 \end_inset
 
  be the function defined by
@@ -1179,7 +1179,7 @@ For each
 \end_inset
 
 where 
-\begin_inset Formula $n_{k}:\mathbb{R}\rightarrow S^{n-1}$
+\begin_inset Formula $n_{k}:\mathbb{R}\rightarrow S^{d-1}$
 \end_inset
 
  and 
@@ -1191,7 +1191,17 @@ where
 \end_inset
 
  functions.
- For each 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+For each 
 \begin_inset Formula $k\in\mathcal{K}$
 \end_inset
 
@@ -1206,11 +1216,30 @@ where
  be the affine set defined by
 \begin_inset Formula 
 \[
-\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{n}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
+\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
 \]
 
 \end_inset
 
+Note that 
+\begin_inset Formula $\omega_{k}\left(t\right)$
+\end_inset
+
+ is one of the two open half-spaces determined by the plane 
+\begin_inset Formula $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 For each 
 \begin_inset Formula $t\in\mathbb{R}$
 \end_inset
@@ -1242,16 +1271,7 @@ For each
 \end_layout
 
 \begin_layout Standard
-Note that 
-\begin_inset Formula $\omega_{k}\left(t\right)$
-\end_inset
-
- is one of the two open half-spaces determined by the plane 
-\begin_inset Formula $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $
-\end_inset
-
-.
- Denote 
+Denote 
 \begin_inset Formula $n_{k}\coloneqq n_{k}\left(0\right)$
 \end_inset
 
@@ -1659,7 +1679,7 @@ That is,
 \end_inset
 
  
-\begin_inset Formula $z_{v}:\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{3}$
+\begin_inset Formula $z_{v}:\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
 \end_inset
 
  satisfying 
@@ -2316,19 +2336,56 @@ D
 \end_layout
 
 \begin_layout Theorem
-There exist a smooth function 
-\begin_inset Formula $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{3}$
+There exist 
+\begin_inset Formula $\tau>0$
 \end_inset
 
- such that 
-\begin_inset Formula $T\left(\cdot,t\right)=\partial\Omega$
+ and a 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ mapping 
+\begin_inset Formula $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $T\left(\Omega,t\right)=\Omega_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $T\left(\partial\Omega,t\right)=\partial\Omega_{t}$
+\end_inset
+
+ and such that 
+\begin_inset Formula $T\left(\cdot,t\right):\overline{\Omega}\rightarrow\overline{\Omega_{t}}$
+\end_inset
+
+ is bi-Lipschitz for all 
+\begin_inset Formula $t\in\left(-\tau,\tau\right)$
+\end_inset
+
+.
+ Furthermore, we have
+\begin_inset Formula 
+\begin{equation}
+\theta\left(x\right)\cdot\nu\left(x\right)=\dot{a}_{k}\left(0\right)-x\cdot\dot{n}_{k}\left(0\right)\quad\forall\;x\in\mathrm{int}\,\partial\omega_{k}\cap\overline{\Omega},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta\coloneqq\partial_{t}T\left(\cdot,0\right)$
 \end_inset
 
  and 
-\begin_inset Formula $T\left(\cdot,t\right)$
+\begin_inset Formula $\nu$
 \end_inset
 
- is bijective.
+ is the outward unit normal vector to 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
