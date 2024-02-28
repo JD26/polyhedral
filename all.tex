@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setlength{\parindent}{0bp}
+\usepackage{color}
+\definecolor{note_fontcolor}{rgb}{0.800781, 0.800781, 0.800781}
 \usepackage{babel}
 \usepackage{textcomp}
 \usepackage{mathtools}
@@ -14,6 +16,13 @@
  {hyperref}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% The greyedout annotation environment
+\newenvironment{lyxgreyedout}
+  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
+  {\ignorespacesafterend\egroup}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}[section]
@@ -35,6 +44,9 @@
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{\protect\remarkname}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{crossreftools}
+
 \makeatother
 
 \providecommand{\definitionname}{Definition}
@@ -44,53 +56,113 @@
 
 \begin{document}
 
-\section{Polyhedrals, polytopes and barycentric coordinates}
+\section{Notation}
 
-Let us start with some definitions and facts. Our reference is \cite{ABrIP1983}\href{file:references/ABrIP1983.pdf}{§}.
+The zero vector of $\mathbb{R}^{d}$ is denoted by $\vec{0}$.
 
-An affine subspace of $\mathbb{R}^{d}$ is either the empty set or
-a translate of a linear subspace, that is, a subset $x+L$ where $x\in\mathbb{R}^{d}$
-and $L$ is a linear subspace of $\mathbb{R}^{d}$. The dimension
-of a non-empty affine subspace $A$ is the dimension of the linear
-subspace $L$ such that $A=x+L$. For any subset $M$ of $\mathbb{R}^{d}$,
-there is a smallest affine subspace containing $M$, namely, the intersection
-of all affine subspaces containing $M$. This affine subspace is called
-the affine hull of M, and it is denoted by $\mathrm{aff}\,$M.
+The unit sphere $\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
+is denoted by $S^{d-1}$.
 
+Given a finite set of indices $\mathcal{K}$, $\left|\mathcal{K}\right|$
+denotes the cardinality of $\mathcal{K}$.
+
+\section{Polyhedrals and polytopes}
+
+Let us start with some definitions and facts. Our reference is \cite{ABrIP1983}.
+\begin{defn}
+An \emph{affine} \emph{subspace} of $\mathbb{R}^{d}$ is either the
+empty set or a translate of a linear subspace, that is, a subset $x+L$
+where $x\in\mathbb{R}^{d}$ and $L$ is a linear subspace of $\mathbb{R}^{d}$.
+\end{defn}
+%
+\begin{defn}
+The dimension of a non-empty affine subspace $A$ is the dimension
+of the linear subspace $L$ such that $A=x+L$. In other words, 
+\[
+\mathrm{dim}\,A\coloneqq\mathrm{dim}\,L.
+\]
+\end{defn}
+%
+\begin{defn}
+For any subset $M$ of $\mathbb{R}^{d}$, there is a smallest affine
+subspace containing $M$, namely, the intersection of all affine subspaces
+containing $M$. This affine subspace is called the \emph{affine hull}
+of M, and it is denoted by $\mathrm{aff}\,$M.
+\end{defn}
+%
+\begin{defn}
+Let $C$ be a convex set of $\mathbb{R}^{d}$. The dimension of $C$
+is defined as the dimension of the affine hull of $C$, that is 
+\[
+\mathrm{dim}\,C\coloneqq\mathrm{dim}\left(\mathrm{aff}\,C\right).
+\]
+\end{defn}
+%
+\begin{defn}
 For any subset $M$ of $\mathbb{R}^{d}$, there is a smallest convex
 set containing $M$, namely, the intersection of all convex sets containing
-$M$. This convex set is called the convex hull of M, and it is denoted
-by $\mathrm{conv}\,$M. Let $C$ be a convex set of $\mathbb{R}^{d}$.
-By the dimension of $C$ we mean the dimension of the affine hull
-of $C$. A point $x\in C$ is called an extreme point of $C$ if $C\backslash\left\{ x\right\} $
-is again convex. If $C$ is in addition compact, $C$ is the convex
-hull of its extreme points.
+$M$. This convex set is called the \emph{convex hull} of M, and it
+is denoted by $\mathrm{conv}\,$M. 
+\end{defn}
+%
+\begin{lyxgreyedout}
+>\textcompwordmark > The following is a definition adapted to this
+context.%
+\end{lyxgreyedout}
 
-A subset $Q$ of $\mathbb{R}^{d}$ is called polyhedral set if $Q$
-is the intersection of a finite number of closed half-spaces or $Q=\mathbb{R}^{d}$.
-Every polyhedral set is closed and convex. A polyehedral set $Q\neq\mathbb{R}^{d}$
-has the form
+\begin{defn}
+Let $C$ be a closed convex set of $\mathbb{R}^{d}$. A point $x\in C$
+is called an \emph{extreme point} of $C$ if $C\backslash\left\{ x\right\} $
+is again convex. The set of extreme points of $C$ is denoted by $\mathrm{ext}\,C$.
+\end{defn}
+%
+\begin{thm}[Minkowski's Theorem]
+Let $C$ be a compact set in $\mathbb{R}^{d}$. Then
+\[
+C=\mathrm{conv}\left(\mathrm{ext}\,C\right).
+\]
+\end{thm}
+%
+\begin{defn}
+A subset $P$ of $\mathbb{R}^{d}$ is called \emph{polyhedral set}
+if $Q$ is the intersection of a finite number of closed half-spaces
+or $P=\mathbb{R}^{d}$. Every polyhedral set is closed and convex.
+A polyhedral set $P\neq\mathbb{R}^{d}$ has the form
 \begin{equation}
-Q=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} ,\label{eq:rep}
+P=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} ,\label{eq:rep}
 \end{equation}
-where $\mathcal{K}$ is a finite set of indices, $n_{k}\in\mathbb{R}^{d}\backslash\left\{ \overrightarrow{0}\right\} $
-and $a_{k}\in\mathbb{R}$. This representation of $Q$ is called irreductible
+where $\mathcal{K}$ is a finite set of indices, $n_{k}\in\mathbb{R}^{d}\backslash\left\{ \vec{0}\right\} $
+and $a_{k}\in\mathbb{R}$. In (\ref{eq:rep}), it is implicitly assumed
+that no two closed half-spaces are identical.
+\end{defn}
+%
+\begin{defn}
+The representation (\ref{eq:rep}) of $P$ is called \emph{irreducible}
 if $\left|\mathcal{K}\right|=1$, or $\left|\mathcal{K}\right|>1$
 and
 \[
-Q\subsetneq\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} \quad\forall\;j\in\mathcal{K}.
+P\subsetneq\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \quad\forall\;j\in\mathcal{K}.
 \]
-Let $Q$ be a polyhedral set in $\mathbb{R}^{d}$ with dimension $d$,
-$Q\neq\mathbb{R}^{d}$, and $\left|\mathcal{K}\right|>1$. Then the
-representation (\ref{eq:rep}) is irreductible if and only if
+A representation which is not irreducible is called \emph{reducible}.
+\end{defn}
+%
+\begin{thm}
+Let $P$ be a polyhedral set in $\mathbb{R}^{d}$ with $\mathrm{dim}\,P=d$
+and $P\neq\mathbb{R}^{d}$. Suppose that $\left|\mathcal{K}\right|>1$
+in the representation (\ref{eq:rep}) of $P$. Then (\ref{eq:rep})
+is irreducible if and only if
 \[
-\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
 \]
+\end{thm}
+%
 In this case, each set $\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap Q$
 is called face of $Q$. It turns that every face of $Q$ is also a
 polyehedral set and the number of faces of $Q$ is finite.
-
-A polytope is the convex hull of a non-empty finite set of $\mathbb{R}^{d}$.
+\begin{defn}
+A polytope is the convex hull of a non-empty finite set of $\mathbb{R}^{d}$. 
+\end{defn}
+%
 A subset $P$ of $\mathbb{R}^{d}$ is a polytope if and only if it
 is a non-empty bounded polyehedral set. A subset $P$ of $\mathbb{R}^{d}$
 is a polytope if and only if it is a compact convex set with a finite
@@ -99,6 +171,8 @@ set $P$ is a compact convex set that can be represented as the convex
 hull of its finite set of extreme points. These extreme points are
 called vertices of $P$. A polytope of dimension $d$ is simple if
 each vertex of $P$ is contained in precisely $d$ faces (reescribir).
+
+\section{Barycentric coordinates}
 
 Let $P$ be a non-empty bounded polyehedral set, or equivalently a
 polytope, of dimension $d$. Assume that $P$ is simple. Let $\mathcal{V}$
@@ -232,9 +306,6 @@ Setting $x=w\in\mathcal{V}$ it follows that $\alpha_{w}=\alpha_{w}b_{w}\left(w\r
 
 \section{Polyhedral domain and deformation function}
 
-$S^{d-1}=\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
-is the unit $\left(d-1\right)$-sphere.
-
 Let $\mathcal{K}$ be a finite set of indices.
 \begin{defn}
 For each $k\in\mathcal{K}$, let $\widehat{\phi}_{k}:\mathbb{R}^{d}\times\mathbb{R}\rightarrow\mathbb{R}$
@@ -243,7 +314,8 @@ be the function defined by
 \widehat{\phi}_{k}\left(x,t\right)\coloneqq x\cdot n_{k}\left(t\right)-a_{k}\left(t\right),
 \]
 where $n_{k}:\mathbb{R}\rightarrow S^{d-1}$ and $a_{k}:\mathbb{R}\rightarrow\mathbb{R}$
-are arbitrary $C^{\infty}$ functions.
+are $C^{\infty}$ functions. Denote $n_{k}\coloneqq n_{k}\left(0\right)$,
+$a_{k}\coloneqq a_{k}\left(0\right)$ and $\widehat{\phi}_{k}\left(\cdot\right)\coloneqq\widehat{\phi}_{k}\left(\cdot,0\right)$.
 \end{defn}
 %
 \begin{defn}
@@ -252,43 +324,68 @@ be the affine set defined by
 \[
 \omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
 \]
-Note that $\omega_{k}\left(t\right)$ is one of the two open half-spaces
-determined by the plane $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $.
+Denote $\omega_{k}\coloneqq\omega_{k}\left(0\right)$. Observe that
+$\omega_{k}\left(t\right)$ is one of the two open half-spaces determined
+by the hyperplane 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right\} .
+\]
 \end{defn}
 %
 \begin{defn}
 For each $t\in\mathbb{R}$, let $\Omega_{t}$ be the convex set of
-$\mathbb{R}^{n}$ defined by
+$\mathbb{R}^{d}$ defined by
 \[
 \Omega_{t}\coloneqq\bigcap_{k\in\mathcal{K}}\omega_{k}\left(t\right).
 \]
+The set $\Omega_{t}$ is open because it is the finite intersection
+of open half-spaces. Denote 
+\[
+\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.
+\]
+As 
+\[
+\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} 
+\]
+is a finite intersection of closed half-spaces, $\overline{\Omega}$
+is a polyhedral set by definition.
 \end{defn}
 %
-Denote $n_{k}\coloneqq n_{k}\left(0\right)$, $a_{k}\coloneqq a_{k}\left(0\right)$,
-$\widehat{\phi}_{k}\left(\cdot\right)\coloneqq\widehat{\phi}_{k}\left(\cdot,0\right)$
-$\omega_{k}\coloneqq\omega_{k}\left(0\right)$, $\Omega\coloneqq\Omega_{0}$.
-Thus, as $\Omega=\bigcap_{k\in\mathcal{K}}\omega_{k}$ is a finite
-intersection of open sets, $\Omega$ is a open set; as $\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}$
-is a finite intersection of closed half-spaces, $\overline{\Omega}$
-is a polyhedral set. 
-
-Consider the following assumptions:
+Consider the following four assumptions:
 \begin{enumerate}
-\item $a_{k}>0$ $\forall\;k\in\mathcal{K}$. This implies that $\overrightarrow{0}\in\Omega$.
-Also, from this we can deduce that $\dim\overline{\Omega}=3$. Indeed,
-since $\overrightarrow{0}$ is a interior point, there exists a point
-$y\in\overline{\Omega}\backslash\left\{ \overrightarrow{0}\right\} $
-in the line segment joining $x$ and $\overrightarrow{0}$. Then $x\in\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$.
-Therefore $\mathrm{aff}\,\overline{\Omega}=\mathbb{R}^{3}$.
-\item $\exists\;R>0$ such that $\overline{\Omega}\subset B\left(\overrightarrow{0},R\right)$.
-That is, $\overline{\Omega}$ is bounded. Moreover $\overline{\Omega}$
-is not empty. Therefore $\overline{\Omega}$ is a polytope and
+\item[{\crtcrossreflabel{$\mathbf{A1}$}[enu:A1].}] $a_{k}>0$ for all $k\in\mathcal{K}$.
+\end{enumerate}
+Assumption \ref{enu:A1} implies that $\overrightarrow{0}\in\Omega$.
+Indeed
+\[
+\widehat{\phi}_{k}\left(\overrightarrow{0},0\right)\coloneqq\overrightarrow{0}\cdot n_{k}-a_{k}=-a_{k}<0,
+\]
+and hence
+\[
+\vec{0}\in\omega_{k}=\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\right\} \quad\forall\;k\in\mathcal{K}.
+\]
+Moreover, one can deduce that $\dim\,\overline{\Omega}=d$. Indeed,
+since $\overrightarrow{0}$ is a interior point of $\overline{\Omega}$,
+there exists a point $y\in\overline{\Omega}\backslash\left\{ \vec{0}\right\} $
+in the line segment joining $\vec{0}$ and any point $x\in\mathbb{R}^{d}$.
+Thus $x\in\mathrm{aff}\left\{ \vec{0},y\right\} $, and hence $x\in\mathrm{aff}\,\overline{\Omega}$
+(because $\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$).
+Therefore $\mathbb{R}^{d}\subset\mathrm{aff}\,\overline{\Omega}$.
+It follows that $\mathrm{aff}\,\overline{\Omega}=\mathbb{R}^{d}$
+and $\dim\,\mathrm{aff}\,\overline{\Omega}=\dim\,\mathbb{R}^{d}=d$.
+\begin{enumerate}
+\item[{\crtcrossreflabel{$\mathbf{A2}$}[enu:A2].}] There exists a constant $R>0$ such that $\overline{\Omega}\subset B\left(\overrightarrow{0},R\right)$,
+that is, $\overline{\Omega}$ is bounded.
+\end{enumerate}
+Moreover $\overline{\Omega}$ is not empty. Therefore $\overline{\Omega}$
+is a polytope and
 \[
 \overline{\Omega}=\mathrm{conv}\left\{ v\left|\,v\in\mathcal{V}\right.\right\} ,
 \]
 where $\mathcal{V}$ is the finite set of vertices (extreme points)
 of $\overline{\Omega}$. See Cor. 8.7 in \cite{ABrIP1983}.
-\item $\partial\omega_{j}\cap\mathrm{int}\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\overline{\omega_{k}}\neq\emptyset$
+\begin{enumerate}
+\item[{\crtcrossreflabel{$\mathbf{A3}$}[enu:A3].}] $\partial\omega_{j}\cap\mathrm{int}\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\overline{\omega_{k}}\neq\emptyset$
 $\forall\;j\in\mathcal{K}$. Since $\overline{\Omega}$ is bounded,
 $\left|\mathcal{K}\right|>1$. Moreover, $\dim\overline{\Omega}=3$.
 Thus, this assumption is equivalent to impose that the representation
@@ -296,7 +393,7 @@ $\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}$
 is irreducible. Then, the boundary of $\overline{\Omega}$ is $\bigcup_{k\in\mathcal{K}}\partial\omega_{k}\cap\overline{\Omega}$
 and the faces of $\overline{\Omega}$ are the sets $\partial\omega_{k}\cap\overline{\Omega}$,
 $k\in\mathcal{K}$. See Thm. 8.1, 8.2 in \cite{ABrIP1983}.
-\item Each $v$ is contained in precisely $3$ faces. As $\dim\overline{\Omega}=3$,
+\item[{\crtcrossreflabel{$\mathbf{A4}$}[enu:A4].}] Each $v$ is contained in precisely $3$ faces. As $\dim\overline{\Omega}=3$,
 this assumption is equivalent to impose that $\overline{\Omega}$
 is simple. See Thm. 2.11 in \cite{ABrIP1983}. Given $v\in\mathcal{V}$,
 denote by $\mathcal{I}_{v}\subset\mathcal{K}$ the subset of indices
@@ -560,7 +657,7 @@ $f_{k}\coloneqq f_{k}\left(0\right)$ and $\Omega\coloneqq\Omega_{0}$.
 D
 \end{defn}
 \begin{thm}
-There exist $\tau>0$ and a $C^{\infty}$ mapping $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
+There exist $\tau>0$ and a mapping $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
 satisfying $T\left(\Omega,t\right)=\Omega_{t}$, $T\left(\partial\Omega,t\right)=\partial\Omega_{t}$
 and such that $T\left(\cdot,t\right):\overline{\Omega}\rightarrow\overline{\Omega_{t}}$
 is bi-Lipschitz for all $t\in\left(-\tau,\tau\right)$. Furthermore,

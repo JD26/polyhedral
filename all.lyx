@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\usepackage{crossreftools}
+\end_preamble
 \use_default_options true
 \begin_modules
 theorems-std
@@ -82,7 +85,51 @@ theorems-sec
 \begin_body
 
 \begin_layout Section
-Polyhedrals, polytopes and barycentric coordinates
+Notation
+\end_layout
+
+\begin_layout Standard
+The zero vector of 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The unit sphere 
+\begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $S^{d-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Given a finite set of indices 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\mathcal{K}\right|$
+\end_inset
+
+ denotes the cardinality of 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Polyhedrals and polytopes
 \end_layout
 
 \begin_layout Standard
@@ -95,21 +142,19 @@ literal "false"
 
 \end_inset
 
-
-\begin_inset CommandInset href
-LatexCommand href
-name "§"
-target "references/ABrIP1983.pdf"
-type "file:"
-literal "false"
-
-\end_inset
-
 .
 \end_layout
 
-\begin_layout Standard
-An affine subspace of 
+\begin_layout Definition
+An 
+\emph on
+affine
+\emph default
+ 
+\emph on
+subspace
+\emph default
+ of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
@@ -131,7 +176,17 @@ An affine subspace of
 \end_inset
 
 .
- The dimension of a non-empty affine subspace 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+The dimension of a non-empty affine subspace 
 \begin_inset Formula $A$
 \end_inset
 
@@ -144,7 +199,26 @@ An affine subspace of
 \end_inset
 
 .
- For any subset 
+ In other words, 
+\begin_inset Formula 
+\[
+\mathrm{dim}\,A\coloneqq\mathrm{dim}\,L.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+For any subset 
 \begin_inset Formula $M$
 \end_inset
 
@@ -161,8 +235,11 @@ An affine subspace of
 \end_inset
 
 .
- This affine subspace is called the affine hull of M, and it is denoted
- by 
+ This affine subspace is called the 
+\emph on
+affine hull
+\emph default
+ of M, and it is denoted by 
 \begin_inset Formula $\mathrm{aff}\,$
 \end_inset
 
@@ -170,6 +247,49 @@ M.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a convex set of 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ The dimension of 
+\begin_inset Formula $C$
+\end_inset
+
+ is defined as the dimension of the affine hull of 
+\begin_inset Formula $C$
+\end_inset
+
+, that is 
+\begin_inset Formula 
+\[
+\mathrm{dim}\,C\coloneqq\mathrm{dim}\left(\mathrm{aff}\,C\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 For any subset 
 \begin_inset Formula $M$
 \end_inset
@@ -187,26 +307,45 @@ For any subset
 \end_inset
 
 .
- This convex set is called the convex hull of M, and it is denoted by 
+ This convex set is called the 
+\emph on
+convex hull
+\emph default
+ of M, and it is denoted by 
 \begin_inset Formula $\mathrm{conv}\,$
 \end_inset
 
 M.
- Let 
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+>> The following is a definition adapted to this context.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Let 
 \begin_inset Formula $C$
 \end_inset
 
- be a convex set of 
+ be a closed convex set of 
 \begin_inset Formula $\mathbb{R}^{d}$
-\end_inset
-
-.
- By the dimension of 
-\begin_inset Formula $C$
-\end_inset
-
- we mean the dimension of the affine hull of 
-\begin_inset Formula $C$
 \end_inset
 
 .
@@ -214,7 +353,11 @@ M.
 \begin_inset Formula $x\in C$
 \end_inset
 
- is called an extreme point of 
+ is called an 
+\emph on
+extreme point
+\emph default
+ of 
 \begin_inset Formula $C$
 \end_inset
 
@@ -223,44 +366,92 @@ M.
 \end_inset
 
  is again convex.
- If 
+ The set of extreme points of 
 \begin_inset Formula $C$
 \end_inset
 
- is in addition compact, 
-\begin_inset Formula $C$
+ is denoted by 
+\begin_inset Formula $\mathrm{ext}\,C$
 \end_inset
 
- is the convex hull of its extreme points.
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Minkowski's Theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a compact set in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+C=\mathrm{conv}\left(\mathrm{ext}\,C\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 A subset 
-\begin_inset Formula $Q$
+\begin_inset Formula $P$
 \end_inset
 
  of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
- is called polyhedral set if 
+ is called 
+\emph on
+polyhedral set
+\emph default
+ if 
 \begin_inset Formula $Q$
 \end_inset
 
  is the intersection of a finite number of closed half-spaces or 
-\begin_inset Formula $Q=\mathbb{R}^{d}$
+\begin_inset Formula $P=\mathbb{R}^{d}$
 \end_inset
 
 .
  Every polyhedral set is closed and convex.
- A polyehedral set 
-\begin_inset Formula $Q\neq\mathbb{R}^{d}$
+ A polyhedral set 
+\begin_inset Formula $P\neq\mathbb{R}^{d}$
 \end_inset
 
  has the form
 \begin_inset Formula 
 \begin{equation}
-Q=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} ,\label{eq:rep}
+P=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} ,\label{eq:rep}
 \end{equation}
 
 \end_inset
@@ -270,7 +461,7 @@ where
 \end_inset
 
  is a finite set of indices, 
-\begin_inset Formula $n_{k}\in\mathbb{R}^{d}\backslash\left\{ \overrightarrow{0}\right\} $
+\begin_inset Formula $n_{k}\in\mathbb{R}^{d}\backslash\left\{ \vec{0}\right\} $
 \end_inset
 
  and 
@@ -278,11 +469,46 @@ where
 \end_inset
 
 .
- This representation of 
-\begin_inset Formula $Q$
+ In 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rep"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- is called irreductible if 
+, it is implicitly assumed that no two closed half-spaces are identical.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+The representation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ of 
+\begin_inset Formula $P$
+\end_inset
+
+ is called 
+\emph on
+irreducible
+\emph default
+ if 
 \begin_inset Formula $\left|\mathcal{K}\right|=1$
 \end_inset
 
@@ -293,33 +519,48 @@ where
  and
 \begin_inset Formula 
 \[
-Q\subsetneq\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} \quad\forall\;j\in\mathcal{K}.
+P\subsetneq\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \quad\forall\;j\in\mathcal{K}.
 \]
 
 \end_inset
 
+A representation which is not irreducible is called 
+\emph on
+reducible
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
 Let 
-\begin_inset Formula $Q$
+\begin_inset Formula $P$
 \end_inset
 
  be a polyhedral set in 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
- with dimension 
-\begin_inset Formula $d$
+ with 
+\begin_inset Formula $\mathrm{dim}\,P=d$
 \end_inset
 
-, 
-\begin_inset Formula $Q\neq\mathbb{R}^{d}$
-\end_inset
-
-, and 
-\begin_inset Formula $\left|\mathcal{K}\right|>1$
+ and 
+\begin_inset Formula $P\neq\mathbb{R}^{d}$
 \end_inset
 
 .
- Then the representation 
+ Suppose that 
+\begin_inset Formula $\left|\mathcal{K}\right|>1$
+\end_inset
+
+ in the representation 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:rep"
@@ -329,14 +570,40 @@ noprefix "false"
 
 \end_inset
 
- is irreductible if and only if
+ of 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is irreducible if and only if
 \begin_inset Formula 
 \[
-\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{k}\leq a_{k}\right.\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
 \]
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 In this case, each set 
 \begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap Q$
 \end_inset
@@ -357,13 +624,24 @@ In this case, each set
  is finite.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Definition
 A polytope is the convex hull of a non-empty finite set of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
 .
- A subset 
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A subset 
 \begin_inset Formula $P$
 \end_inset
 
@@ -406,6 +684,10 @@ A polytope is the convex hull of a non-empty finite set of
 \end_inset
 
  faces (reescribir).
+\end_layout
+
+\begin_layout Section
+Barycentric coordinates
 \end_layout
 
 \begin_layout Standard
@@ -1143,17 +1425,6 @@ Polyhedral domain and deformation function
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $S^{d-1}=\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
-\end_inset
-
- is the unit 
-\begin_inset Formula $\left(d-1\right)$
-\end_inset
-
--sphere.
-\end_layout
-
-\begin_layout Standard
 Let 
 \begin_inset Formula $\mathcal{K}$
 \end_inset
@@ -1186,11 +1457,24 @@ where
 \begin_inset Formula $a_{k}:\mathbb{R}\rightarrow\mathbb{R}$
 \end_inset
 
- are arbitrary 
+ are 
 \begin_inset Formula $C^{\infty}$
 \end_inset
 
  functions.
+ Denote 
+\begin_inset Formula $n_{k}\coloneqq n_{k}\left(0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $a_{k}\coloneqq a_{k}\left(0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\phi}_{k}\left(\cdot\right)\coloneqq\widehat{\phi}_{k}\left(\cdot,0\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1221,15 +1505,24 @@ For each
 
 \end_inset
 
-Note that 
-\begin_inset Formula $\omega_{k}\left(t\right)$
-\end_inset
-
- is one of the two open half-spaces determined by the plane 
-\begin_inset Formula $\left\{ x\in\mathbb{R}^{3}\left|\,x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right.\right\} $
+Denote 
+\begin_inset Formula $\omega_{k}\coloneqq\omega_{k}\left(0\right)$
 \end_inset
 
 .
+ Observe that 
+\begin_inset Formula $\omega_{k}\left(t\right)$
+\end_inset
+
+ is one of the two open half-spaces determined by the hyperplane 
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\left(t\right)=a_{k}\left(t\right)\right\} .
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1249,7 +1542,7 @@ For each
 \end_inset
 
  be the convex set of 
-\begin_inset Formula $\mathbb{R}^{n}$
+\begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
  defined by
@@ -1260,7 +1553,32 @@ For each
 
 \end_inset
 
+The set 
+\begin_inset Formula $\Omega_{t}$
+\end_inset
 
+ is open because it is the finite intersection of open half-spaces.
+ Denote 
+\begin_inset Formula 
+\[
+\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.
+\]
+
+\end_inset
+
+As 
+\begin_inset Formula 
+\[
+\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} 
+\]
+
+\end_inset
+
+is a finite intersection of closed half-spaces, 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is a polyhedral set by definition.
 \end_layout
 
 \begin_layout Standard
@@ -1271,67 +1589,81 @@ For each
 \end_layout
 
 \begin_layout Standard
-Denote 
-\begin_inset Formula $n_{k}\coloneqq n_{k}\left(0\right)$
-\end_inset
-
-, 
-\begin_inset Formula $a_{k}\coloneqq a_{k}\left(0\right)$
-\end_inset
-
-, 
-\begin_inset Formula $\widehat{\phi}_{k}\left(\cdot\right)\coloneqq\widehat{\phi}_{k}\left(\cdot,0\right)$
-\end_inset
-
- 
-\begin_inset Formula $\omega_{k}\coloneqq\omega_{k}\left(0\right)$
-\end_inset
-
-, 
-\begin_inset Formula $\Omega\coloneqq\Omega_{0}$
-\end_inset
-
-.
- Thus, as 
-\begin_inset Formula $\Omega=\bigcap_{k\in\mathcal{K}}\omega_{k}$
-\end_inset
-
- is a finite intersection of open sets, 
-\begin_inset Formula $\Omega$
-\end_inset
-
- is a open set; as 
-\begin_inset Formula $\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}$
-\end_inset
-
- is a finite intersection of closed half-spaces, 
-\begin_inset Formula $\overline{\Omega}$
-\end_inset
-
- is a polyhedral set.
- 
-\end_layout
-
-\begin_layout Standard
-Consider the following assumptions:
+Consider the following four assumptions:
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $a_{k}>0$
-\end_inset
+\begin_inset Argument item:1
+status collapsed
 
- 
-\begin_inset Formula $\forall\;k\in\mathcal{K}$
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+crtcrossreflabel{$
+\backslash
+mathbf{A1}$}[enu:A1]
+\end_layout
+
 \end_inset
 
 .
- This implies that 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $a_{k}>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\mathcal{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Assumption 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{enu:A1}
+\end_layout
+
+\end_inset
+
+ implies that 
 \begin_inset Formula $\overrightarrow{0}\in\Omega$
 \end_inset
 
 .
- Also, from this we can deduce that 
-\begin_inset Formula $\dim\overline{\Omega}=3$
+ Indeed
+\begin_inset Formula 
+\[
+\widehat{\phi}_{k}\left(\overrightarrow{0},0\right)\coloneqq\overrightarrow{0}\cdot n_{k}-a_{k}=-a_{k}<0,
+\]
+
+\end_inset
+
+and hence
+\begin_inset Formula 
+\[
+\vec{0}\in\omega_{k}=\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\right\} \quad\forall\;k\in\mathcal{K}.
+\]
+
+\end_inset
+
+Moreover, one can deduce that 
+\begin_inset Formula $\dim\,\overline{\Omega}=d$
 \end_inset
 
 .
@@ -1339,46 +1671,93 @@ Consider the following assumptions:
 \begin_inset Formula $\overrightarrow{0}$
 \end_inset
 
- is a interior point, there exists a point 
-\begin_inset Formula $y\in\overline{\Omega}\backslash\left\{ \overrightarrow{0}\right\} $
+ is a interior point of 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+, there exists a point 
+\begin_inset Formula $y\in\overline{\Omega}\backslash\left\{ \vec{0}\right\} $
 \end_inset
 
  in the line segment joining 
-\begin_inset Formula $x$
+\begin_inset Formula $\vec{0}$
+\end_inset
+
+ and any point 
+\begin_inset Formula $x\in\mathbb{R}^{d}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $x\in\mathrm{aff}\left\{ \vec{0},y\right\} $
+\end_inset
+
+, and hence 
+\begin_inset Formula $x\in\mathrm{aff}\,\overline{\Omega}$
+\end_inset
+
+ (because 
+\begin_inset Formula $\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$
+\end_inset
+
+).
+ Therefore 
+\begin_inset Formula $\mathbb{R}^{d}\subset\mathrm{aff}\,\overline{\Omega}$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\mathrm{aff}\,\overline{\Omega}=\mathbb{R}^{d}$
 \end_inset
 
  and 
-\begin_inset Formula $\overrightarrow{0}$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $x\in\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$
-\end_inset
-
-.
- Therefore 
-\begin_inset Formula $\mathrm{aff}\,\overline{\Omega}=\mathbb{R}^{3}$
+\begin_inset Formula $\dim\,\mathrm{aff}\,\overline{\Omega}=\dim\,\mathbb{R}^{d}=d$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\exists\;R>0$
+\begin_inset Argument item:1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+crtcrossreflabel{$
+\backslash
+mathbf{A2}$}[enu:A2]
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+There exists a constant 
+\begin_inset Formula $R>0$
 \end_inset
 
  such that 
 \begin_inset Formula $\overline{\Omega}\subset B\left(\overrightarrow{0},R\right)$
 \end_inset
 
-.
- That is, 
+, that is, 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
  is bounded.
- Moreover 
+\end_layout
+
+\begin_layout Standard
+Moreover 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
@@ -1417,6 +1796,30 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset Argument item:1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+crtcrossreflabel{$
+\backslash
+mathbf{A3}$}[enu:A3]
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula $\partial\omega_{j}\cap\mathrm{int}\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\overline{\omega_{k}}\neq\emptyset$
 \end_inset
 
@@ -1478,6 +1881,29 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset Argument item:1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+crtcrossreflabel{$
+\backslash
+mathbf{A4}$}[enu:A4]
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
 Each 
 \begin_inset Formula $v$
 \end_inset
@@ -2340,11 +2766,7 @@ There exist
 \begin_inset Formula $\tau>0$
 \end_inset
 
- and a 
-\begin_inset Formula $C^{\infty}$
-\end_inset
-
- mapping 
+ and a mapping 
 \begin_inset Formula $T:\overline{\Omega}\times\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$
 \end_inset
 
