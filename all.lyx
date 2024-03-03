@@ -89,6 +89,14 @@ Notation
 \end_layout
 
 \begin_layout Standard
+Let 
+\begin_inset Formula $d\geq2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 The zero vector of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
@@ -107,6 +115,18 @@ The unit sphere
 
  is denoted by 
 \begin_inset Formula $S^{d-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The closed ball 
+\begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert \leq R\right\} $
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $B\bigl(\vec{0},R\bigl)$
 \end_inset
 
 .
@@ -133,7 +153,7 @@ Polyhedrals and polytopes
 \end_layout
 
 \begin_layout Standard
-Let us start with some definitions and facts.
+Let us start with some definitions.
  Our reference is 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -146,6 +166,19 @@ literal "false"
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+A
+\emph default
+ffine subspace
+\end_layout
+
+\end_inset
+
 An 
 \emph on
 affine
@@ -186,6 +219,19 @@ subspace
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Dimension of a 
+\emph default
+affine subspace
+\end_layout
+
+\end_inset
+
 The dimension of a non-empty affine subspace 
 \begin_inset Formula $A$
 \end_inset
@@ -202,7 +248,7 @@ The dimension of a non-empty affine subspace
  In other words, 
 \begin_inset Formula 
 \[
-\mathrm{dim}\,A\coloneqq\mathrm{dim}\,L.
+\dim A\coloneqq\dim L.
 \]
 
 \end_inset
@@ -218,6 +264,17 @@ The dimension of a non-empty affine subspace
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Affine hull
+\end_layout
+
+\end_inset
+
 For any subset 
 \begin_inset Formula $M$
 \end_inset
@@ -239,11 +296,15 @@ For any subset
 \emph on
 affine hull
 \emph default
- of M, and it is denoted by 
-\begin_inset Formula $\mathrm{aff}\,$
+ of M, and it is denoted by
+\begin_inset Formula 
+\[
+\mathrm{aff}\,M.
+\]
+
 \end_inset
 
-M.
+
 \end_layout
 
 \begin_layout Standard
@@ -254,6 +315,17 @@ M.
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Dimension of a convex set
+\end_layout
+
+\end_inset
+
 Let 
 \begin_inset Formula $C$
 \end_inset
@@ -274,7 +346,7 @@ Let
 , that is 
 \begin_inset Formula 
 \[
-\mathrm{dim}\,C\coloneqq\mathrm{dim}\left(\mathrm{aff}\,C\right).
+\dim C\coloneqq\dim\left(\mathrm{aff}\,C\right).
 \]
 
 \end_inset
@@ -290,6 +362,17 @@ Let
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Convex hull
+\end_layout
+
+\end_inset
+
 For any subset 
 \begin_inset Formula $M$
 \end_inset
@@ -311,12 +394,15 @@ For any subset
 \emph on
 convex hull
 \emph default
- of M, and it is denoted by 
-\begin_inset Formula $\mathrm{conv}\,$
+ of M, and it is denoted by
+\begin_inset Formula 
+\[
+\mathrm{conv}\,M.
+\]
+
 \end_inset
 
-M.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -326,25 +412,168 @@ M.
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Greyedout
+\begin_layout Definition
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
->> The following is a definition adapted to this context.
+Supporting hyperplane
 \end_layout
 
+\end_inset
+
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a non-empty closed convex set in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ By a 
+\emph on
+supporting hyperplane
+\emph default
+ of 
+\begin_inset Formula $C$
+\end_inset
+
+ we mean a hyperplane
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} ,\quad n\in\mathbb{R}^{d}\backslash\left\{ \vec{0}\right\} 
+\]
+
+\end_inset
+
+uch that such that 
+\begin_inset Formula $C\subset\left\{ x\in\mathbb{R}^{d}\mid x\cdot n\leq a\right\} $
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} \cap C\neq\emptyset.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Face
+\end_layout
+
+\end_inset
+
 Let 
 \begin_inset Formula $C$
 \end_inset
 
- be a closed convex set of 
+ be a non-empty closed convex set in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ A convex subset 
+\begin_inset Formula $F$
+\end_inset
+
+ (
+\begin_inset Formula $\neq C$
+\end_inset
+
+ or 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+) of 
+\begin_inset Formula $C$
+\end_inset
+
+ is called a 
+\emph on
+k-face
+\emph default
+ of 
+\begin_inset Formula $C$
+\end_inset
+
+ if for any distinct points 
+\begin_inset Formula $y,z\in C$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\mid\lambda x+\left(1-\lambda\right)z,\,\lambda\in\left(0,1\right)\right\} \cap F\neq\emptyset$
+\end_inset
+
+, we actually have
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid\lambda x+\left(1-\lambda\right)z,\,\lambda\in\left[0,1\right]\right\} \subset F.
+\]
+
+\end_inset
+
+A face 
+\begin_inset Formula $F$
+\end_inset
+
+ of 
+\begin_inset Formula $C$
+\end_inset
+
+ is called 
+\emph on
+
+\begin_inset Formula $k$
+\end_inset
+
+-face
+\emph default
+ if 
+\begin_inset Formula $\dim F=k$
+\end_inset
+
+.
+ Every face is closed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Extreme point
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a non-empty closed convex set of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
@@ -362,10 +591,10 @@ extreme point
 \end_inset
 
  if 
-\begin_inset Formula $C\backslash\left\{ x\right\} $
+\begin_inset Formula $\left\{ x\right\} $
 \end_inset
 
- is again convex.
+ is a face.
  The set of extreme points of 
 \begin_inset Formula $C$
 \end_inset
@@ -384,12 +613,12 @@ extreme point
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Definition
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-Minkowski's Theorem
+Exposed face
 \end_layout
 
 \end_inset
@@ -398,7 +627,77 @@ Let
 \begin_inset Formula $C$
 \end_inset
 
- be a compact set in 
+ be a non-empty closed convex set of 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ A face 
+\begin_inset Formula $F$
+\end_inset
+
+ of 
+\begin_inset Formula $C$
+\end_inset
+
+ of the form 
+\begin_inset Formula 
+\[
+F=\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} \cap C,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} $
+\end_inset
+
+ is a supporting hyperplane of 
+\begin_inset Formula $C$
+\end_inset
+
+, is called 
+\emph on
+exposed face
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here an important result.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Minkowski's Theorem 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 5.10"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a non-empty compact convex set in 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
@@ -421,7 +720,31 @@ C=\mathrm{conv}\left(\mathrm{ext}\,C\right).
 
 \end_layout
 
+\begin_layout Standard
+Next the definition and properties of a 
+\series bold
+polyhedral set
+\series default
+.
+\end_layout
+
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:polyhe"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Polyhedral set
+\end_layout
+
+\end_inset
+
 A subset 
 \begin_inset Formula $P$
 \end_inset
@@ -539,6 +862,30 @@ reducible
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:irred"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 8.1"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Let 
 \begin_inset Formula $P$
 \end_inset
@@ -588,7 +935,7 @@ noprefix "false"
  is irreducible if and only if
 \begin_inset Formula 
 \[
-\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}<a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
 \]
 
 \end_inset
@@ -603,30 +950,168 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-In this case, each set 
-\begin_inset Formula $\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap Q$
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:bound"
+
 \end_inset
 
- is called face of 
-\begin_inset Formula $Q$
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 8.2"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polyhedral set in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathrm{dim}\,P=d$
+\end_inset
+
+ and 
+\begin_inset Formula $P\neq\mathbb{R}^{d}$
 \end_inset
 
 .
- It turns that every face of 
-\begin_inset Formula $Q$
+ Then 
+\begin_inset Formula 
+\[
+\partial P=\bigcup_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}=a_{k}\right\} \cap P,
+\]
+
 \end_inset
 
- is also a polyehedral set and the number of faces of 
-\begin_inset Formula $Q$
+each 
+\begin_inset Formula $\left(d-1\right)$
 \end_inset
 
- is finite.
+-face of 
+\begin_inset Formula $P$
+\end_inset
+
+ has the form
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap P
+\]
+
+\end_inset
+
+(this implies that the number of 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces of 
+\begin_inset Formula $P$
+\end_inset
+
+ is finite), and each set
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap P
+\]
+
+\end_inset
+
+is a 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-face if and only if the representation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ of 
+\begin_inset Formula $P$
+\end_inset
+
+ is irreducible.
 \end_layout
 
-\begin_layout Definition
-A polytope is the convex hull of a non-empty finite set of 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:exis_f"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 8.3"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polyhedral set in 
 \begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ and let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a face of 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Then there is a 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-face of 
+\begin_inset Formula $P$
+\end_inset
+
+ containing 
+\begin_inset Formula $F$
 \end_inset
 
 .
@@ -641,41 +1126,330 @@ A polytope is the convex hull of a non-empty finite set of
 \end_layout
 
 \begin_layout Standard
-A subset 
-\begin_inset Formula $P$
+Next the definition and properties of a 
+\series bold
+polytope
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Polytope
+\end_layout
+
 \end_inset
 
- of 
+A polytope is the convex hull of a non-empty finite set of 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
- is a polytope if and only if it is a non-empty bounded polyehedral set.
- A subset 
+.
+ Every polytope is compact.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:equiv"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 7.1"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
 \begin_inset Formula $P$
 \end_inset
 
- of 
+ be a non-empty subset in 
 \begin_inset Formula $\mathbb{R}^{d}$
 \end_inset
 
- is a polytope if and only if it is a compact convex set with a finite number
- of extreme points.
- Therefore, a non-empty bounded polyhedral set 
+.
+ 
 \begin_inset Formula $P$
 \end_inset
 
- is a compact convex set that can be represented as the convex hull of its
- finite set of extreme points.
- These extreme points are called vertices of 
+ is a polytope if and only if 
+\begin_inset Formula $P$
+\end_inset
+
+ is a compact convex set with a finite number of extreme points.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:prop"
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P=\mathrm{conv}\left(\mathrm{ext}\,P\right)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+every face 
+\begin_inset Formula $F$
+\end_inset
+
+ of 
+\begin_inset Formula $P$
+\end_inset
+
+ is also a polytope, and 
+\begin_inset Formula $\mathrm{ext}\,F=F\cap\mathrm{ext}\,P$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+the number of faces of 
+\begin_inset Formula $P$
+\end_inset
+
+ is finite;
+\end_layout
+
+\begin_layout Itemize
+every face of 
+\begin_inset Formula $P$
+\end_inset
+
+ is an exposed face.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 10.5"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim P=d$
+\end_inset
+
+ and let 
+\begin_inset Formula $x$
+\end_inset
+
+ be a extreme point of 
 \begin_inset Formula $P$
 \end_inset
 
 .
- A polytope of dimension 
+ Then there are at least 
 \begin_inset Formula $d$
 \end_inset
 
- is simple if each vertex of 
+ 
+\begin_inset Formula $1$
+\end_inset
+
+-faces of 
+\begin_inset Formula $P$
+\end_inset
+
+ containing 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Simple polytope
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim P=d$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ is called a 
+\emph on
+simple
+\emph default
+ if for 
+\begin_inset Formula $k=0,\ldots,d-1$
+\end_inset
+
+ the number of 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces of 
+\begin_inset Formula $P$
+\end_inset
+
+ containing any 
+\begin_inset Formula $k$
+\end_inset
+
+-face of 
+\begin_inset Formula $P$
+\end_inset
+
+ is equal to 
+\begin_inset Formula $d-k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:simple"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 12.11"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim P=d$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ is simple if and only if each extreme point of 
 \begin_inset Formula $P$
 \end_inset
 
@@ -683,7 +1457,272 @@ A subset
 \begin_inset Formula $d$
 \end_inset
 
- faces (reescribir).
+ 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 12.12"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim P=d$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ is simple if and only if each extreme point of 
+\begin_inset Formula $P$
+\end_inset
+
+ is a extreme point of precisely 
+\begin_inset Formula $d$
+\end_inset
+
+ 
+\begin_inset Formula $1$
+\end_inset
+
+-faces.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:poly_face"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 12.14"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a polytope in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim P=d$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $P$
+\end_inset
+
+ is simple.
+ Let 
+\begin_inset Formula $F_{1},\ldots,F_{d-k}$
+\end_inset
+
+ be 
+\begin_inset Formula $d-k$
+\end_inset
+
+ 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces of 
+\begin_inset Formula $P$
+\end_inset
+
+, where 
+\begin_inset Formula $0\leq k\leq d-1$
+\end_inset
+
+.
+ Let
+\begin_inset Formula 
+\[
+F=\bigcap_{i=1}^{d-k}F_{i}
+\]
+
+\end_inset
+
+and assume that 
+\begin_inset Formula $F\neq\emptyset$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $F$
+\end_inset
+
+ is a 
+\begin_inset Formula $k$
+\end_inset
+
+-face of 
+\begin_inset Formula $P$
+\end_inset
+
+, and 
+\begin_inset Formula $F_{1},\ldots,F_{d-k}$
+\end_inset
+
+ are the only facets of 
+\begin_inset Formula $P$
+\end_inset
+
+ containg 
+\begin_inset Formula $F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here the result that connects polyhedral sets and polytopes.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Thm. 9.2"
+key "ABrIP1983"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a non-empty subset of 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ is a polytope if and only if 
+\begin_inset Formula $P$
+\end_inset
+
+ is a bounded polyhedral set.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Notation.
+
+\series default
+ Let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a non-empty closed convex set in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ From now on, the 
+\begin_inset Formula $0$
+\end_inset
+
+-faces, 
+\begin_inset Formula $1$
+\end_inset
+
+-faces, and 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces are called vertices, edges, and facets of 
+\begin_inset Formula $C$
+\end_inset
+
+, respectively.
 \end_layout
 
 \begin_layout Section
@@ -1420,6 +2459,13 @@ Setting
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Polyhedral domain and deformation function
 \end_layout
@@ -1500,7 +2546,7 @@ For each
  be the affine set defined by
 \begin_inset Formula 
 \[
-\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
+\omega_{k}\left(t\right)\coloneqq\bigl\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\bigr\}.
 \]
 
 \end_inset
@@ -1560,9 +2606,9 @@ The set
  is open because it is the finite intersection of open half-spaces.
  Denote 
 \begin_inset Formula 
-\[
-\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.
-\]
+\begin{equation}
+\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.\label{eq:repr_dom}
+\end{equation}
 
 \end_inset
 
@@ -1578,7 +2624,17 @@ is a finite intersection of closed half-spaces,
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is a polyhedral set by definition.
+ is a polyhedral set by definition (see Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:polyhe"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -1625,50 +2681,41 @@ mathbf{A1}$}[enu:A1]
 \end_inset
 
 .
+ This assumption implies the following:
 \end_layout
 
-\begin_layout Standard
-Assumption 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ref{enu:A1}
-\end_layout
-
-\end_inset
-
- implies that 
-\begin_inset Formula $\overrightarrow{0}\in\Omega$
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\vec{0}\in\Omega$
 \end_inset
 
 .
- Indeed
+ Indeed 
+\begin_inset Formula $\widehat{\phi}_{k}\bigl(\vec{0},0\bigl)=-a_{k}<0$
+\end_inset
+
+ and hence
 \begin_inset Formula 
 \[
-\widehat{\phi}_{k}\left(\overrightarrow{0},0\right)\coloneqq\overrightarrow{0}\cdot n_{k}-a_{k}=-a_{k}<0,
+\vec{0}\in\omega_{k}=\bigl\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\bigr\}\quad\forall\;k\in\mathcal{K}.
 \]
 
 \end_inset
 
-and hence
-\begin_inset Formula 
-\[
-\vec{0}\in\omega_{k}=\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\right\} \quad\forall\;k\in\mathcal{K}.
-\]
-
+Thus 
+\begin_inset Formula $\overline{\Omega}$
 \end_inset
 
-Moreover, one can deduce that 
-\begin_inset Formula $\dim\,\overline{\Omega}=d$
+ is not-empty.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\dim\overline{\Omega}=d$
 \end_inset
 
 .
  Indeed, since 
-\begin_inset Formula $\overrightarrow{0}$
+\begin_inset Formula $\vec{0}$
 \end_inset
 
  is a interior point of 
@@ -1676,7 +2723,7 @@ Moreover, one can deduce that
 \end_inset
 
 , there exists a point 
-\begin_inset Formula $y\in\overline{\Omega}\backslash\left\{ \vec{0}\right\} $
+\begin_inset Formula $y\in\overline{\Omega}\backslash\bigl\{\vec{0}\bigr\}$
 \end_inset
 
  in the line segment joining 
@@ -1689,7 +2736,7 @@ Moreover, one can deduce that
 
 .
  Thus 
-\begin_inset Formula $x\in\mathrm{aff}\left\{ \vec{0},y\right\} $
+\begin_inset Formula $x\in\mathrm{aff}\bigl\{\vec{0},y\bigr\}$
 \end_inset
 
 , and hence 
@@ -1697,7 +2744,7 @@ Moreover, one can deduce that
 \end_inset
 
  (because 
-\begin_inset Formula $\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$
+\begin_inset Formula $\mathrm{aff}\bigl\{\vec{0},y\bigr\}\subset\mathrm{aff}\,\overline{\Omega}$
 \end_inset
 
 ).
@@ -1711,12 +2758,13 @@ Moreover, one can deduce that
 \end_inset
 
  and 
-\begin_inset Formula $\dim\,\mathrm{aff}\,\overline{\Omega}=\dim\,\mathbb{R}^{d}=d$
+\begin_inset Formula $\dim\left(\mathrm{aff}\,\overline{\Omega}\right)=\dim\mathbb{R}^{d}=d$
 \end_inset
 
 .
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status collapsed
@@ -1746,55 +2794,140 @@ There exists a constant
 \end_inset
 
  such that 
-\begin_inset Formula $\overline{\Omega}\subset B\left(\overrightarrow{0},R\right)$
+\begin_inset Formula $\overline{\Omega}\subset B\bigl(\vec{0},R\bigl)$
 \end_inset
 
-, that is, 
-\begin_inset Formula $\overline{\Omega}$
-\end_inset
-
- is bounded.
+.
+ This assumption implies the following:
 \end_layout
 
-\begin_layout Standard
-Moreover 
+\begin_deeper
+\begin_layout Enumerate
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is not empty.
- Therefore 
+ is a polytope.
+ Indeed, as 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is a polytope and
+ is not-empty polyhedral set, if 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is bounded, then 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is a polytope (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:equiv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Hence, there exists a finite set 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ of vertices (
+\begin_inset Formula $0$
+\end_inset
+
+-faces) of 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ and
 \begin_inset Formula 
 \[
-\overline{\Omega}=\mathrm{conv}\left\{ v\left|\,v\in\mathcal{V}\right.\right\} ,
+\overline{\Omega}=\mathrm{conv}\,\mathcal{V}
 \]
 
 \end_inset
 
-where 
-\begin_inset Formula $\mathcal{V}$
+(see Theorems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:equiv"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- is the finite set of vertices (extreme points) of 
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:prop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\partial\Omega=\bigcup_{k\in\mathcal{K}}\partial\omega_{k}\cap\overline{\Omega}$
+\end_inset
+
+ (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bound"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Moreover, if 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
-.
- See Cor.
- 8.7 in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ABrIP1983"
-literal "false"
+ is bounded, 
+\begin_inset Formula $\left|\mathcal{K}\right|$
+\end_inset
 
+ must be greater than 
+\begin_inset Formula $1$
 \end_inset
 
 .
+ In fact, since 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is a polytope and 
+\begin_inset Formula $\dim\overline{\Omega}=d$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ has at least 
+\begin_inset Formula $d+1$
+\end_inset
+
+ 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces (Corollary 9.4.).
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status collapsed
@@ -1819,43 +2952,68 @@ mathbf{A3}$}[enu:A3]
 
 \end_inset
 
+Assume that
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{j}\left(x,0\right)=0,\,\widehat{\phi}_{k}\left(x,0\right)<0\;\forall\;k\in\mathcal{K}\backslash\left\{ j\right\} \right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\]
 
-\begin_inset Formula $\partial\omega_{j}\cap\mathrm{int}\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\overline{\omega_{k}}\neq\emptyset$
 \end_inset
 
- 
-\begin_inset Formula $\forall\;j\in\mathcal{K}$
-\end_inset
+This assumption implies the following:
+\end_layout
 
-.
- Since 
+\begin_deeper
+\begin_layout Enumerate
+As 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is bounded, 
+ is bounded (
+\begin_inset Formula $\overline{\Omega}\neq\mathbb{R}^{d}$
+\end_inset
+
+), 
 \begin_inset Formula $\left|\mathcal{K}\right|>1$
 \end_inset
 
-.
- Moreover, 
-\begin_inset Formula $\dim\overline{\Omega}=3$
+, 
+\begin_inset Formula $\dim\overline{\Omega}=d$
 \end_inset
 
-.
- Thus, this assumption is equivalent to impose that the representation 
-\begin_inset Formula $\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}$
+, this assumption implies that the representation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:repr_dom"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- is irreducible.
- Then, the boundary of 
+ of 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is 
-\begin_inset Formula $\bigcup_{k\in\mathcal{K}}\partial\omega_{k}\cap\overline{\Omega}$
+ is irreducible (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:irred"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- and the faces of 
+).
+\end_layout
+
+\begin_layout Enumerate
+The 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces of 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
@@ -1867,19 +3025,32 @@ mathbf{A3}$}[enu:A3]
 \begin_inset Formula $k\in\mathcal{K}$
 \end_inset
 
-.
- See Thm.
- 8.1, 8.2 in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ABrIP1983"
-literal "false"
+ (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bound"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
+).
 \end_layout
 
+\begin_layout Standard
+Note that
+\begin_inset Formula 
+\[
+\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{j}\left(x,0\right)=0,\,\widehat{\phi}_{k}\left(x,0\right)<0\;\forall\;k\in\mathcal{K}\backslash\left\{ j\right\} \right\} =\partial\omega_{j}\cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\omega_{k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status collapsed
@@ -1904,57 +3075,186 @@ mathbf{A4}$}[enu:A4]
 
 \end_inset
 
-Each 
-\begin_inset Formula $v$
-\end_inset
-
- is contained in precisely 
-\begin_inset Formula $3$
-\end_inset
-
- faces.
- As 
-\begin_inset Formula $\dim\overline{\Omega}=3$
-\end_inset
-
-, this assumption is equivalent to impose that 
+Each vertex of 
 \begin_inset Formula $\overline{\Omega}$
 \end_inset
 
- is simple.
- See Thm.
- 2.11 in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ABrIP1983"
-literal "false"
+ is contained in precisely 
+\begin_inset Formula $d$
+\end_inset
+
+ 
+\begin_inset Formula $\left(d-1\right)$
+\end_inset
+
+-faces.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+First, recall that for all 
+\begin_inset Formula $v\in\mathcal{V}$
+\end_inset
+
+ there is 
+\begin_inset Formula $k\in\mathcal{K}$
+\end_inset
+
+ such that 
+\begin_inset Formula $v\in\partial\omega_{k}$
+\end_inset
+
+ (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:exis_f"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
- Given 
+), so, this is a precisely an assumption.
+\end_layout
+
+\begin_layout Enumerate
+Given 
 \begin_inset Formula $v\in\mathcal{V}$
 \end_inset
 
 , denote by 
-\begin_inset Formula $\mathcal{I}_{v}\subset\mathcal{K}$
+\begin_inset Formula $\mathcal{K}_{v}$
 \end_inset
 
- the subset of indices such that 
-\begin_inset Formula $v\in\partial\omega_{k}$
+ the subset of 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left\{ \partial\omega_{k}\cap\overline{\Omega}\mid k\in\mathcal{K}_{v}\right\} $
+\end_inset
+
+ are the 
+\begin_inset Formula $d$
 \end_inset
 
  
-\begin_inset Formula $\forall$
+\begin_inset Formula $\left(d-1\right)$
 \end_inset
 
- 
-\begin_inset Formula $k\in\mathcal{I}_{v}$
+-faces contaning 
+\begin_inset Formula $v$
 \end_inset
 
 .
- Clearly 
-\begin_inset Formula $\left|\mathcal{I}_{v}\right|=3$
+ This assumption imposes that 
+\begin_inset Formula $\left|\mathcal{\mathcal{K}}_{v}\right|=d$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+v\in\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+v\notin\partial\omega_{k}\quad\forall\;k\in\mathcal{K}\backslash\mathcal{K}_{v}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Furthermore, as 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is a polytope and 
+\begin_inset Formula $\dim\overline{\Omega}=d$
+\end_inset
+
+, this assumption implies that 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is simple (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:simple"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), and hence 
+\begin_inset Formula $\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}$
+\end_inset
+
+ is a single point (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:poly_face"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ As 
+\begin_inset Formula $v\in\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}$
+\end_inset
+
+ by assumption, it follows that
+\begin_inset Formula 
+\begin{equation}
+\left\{ v\right\} =\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}.\label{eq:vert_face}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The non-degeneracy of vertices is a consequence of Assumption 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{enu:A4}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Formula $\mathrm{rank}\left(n_{k}^{\top}\right)_{k\in\mathcal{\mathcal{K}}_{v}}=d$
+\end_inset
+
+ for all 
+\begin_inset Formula $v\in\mathcal{V}$
 \end_inset
 
 .
@@ -1967,118 +3267,161 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-(non-degeneracy of vertices) Let 
+\begin_layout Proof
+Let 
 \begin_inset Formula $v\in\mathcal{V}$
 \end_inset
 
- and let 
-\begin_inset Formula $\partial\omega_{i}\cap\overline{\Omega}$
+.
+ Suppose that there exists 
+\begin_inset Formula $w\in\mathbb{R}^{d}$
 \end_inset
 
-, 
-\begin_inset Formula $\partial\omega_{j}\cap\overline{\Omega}$
+ such that 
+\begin_inset Formula $w\neq\vec{0}$
 \end_inset
 
  and 
-\begin_inset Formula $\partial\omega_{k}\cap\overline{\Omega}$
+\begin_inset Formula $n_{k}\cdot w=0$
 \end_inset
 
- be the faces containing to 
-\begin_inset Formula $v$
-\end_inset
-
-.
- Suppose that 
-\begin_inset Formula $n_{k}=rn_{i}+sn_{j}$
-\end_inset
-
- with 
-\begin_inset Formula $r,s\geq0$
+ for all 
+\begin_inset Formula $k\in\mathcal{\mathcal{K}}_{v}$
 \end_inset
 
 .
- Then
+ Inmediately, we have 
+\begin_inset Formula $n_{k}\cdot\left(v+\lambda w\right)=a_{k}$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\mathcal{\mathcal{K}}_{v}$
+\end_inset
+
+ and all 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+.
+ That is,
 \begin_inset Formula 
 \[
-a_{k}=n_{k}v=rn_{i}v+sn_{j}v=ra_{i}+sa_{j}
+v+\lambda w\in\partial\omega_{k}\quad\forall\;k\in\mathcal{K}_{v},\;\lambda\in\mathbb{R}.
 \]
 
 \end_inset
 
-and
+Since 
+\begin_inset Formula $n_{k}v<a_{k}$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
+\end_inset
+
+ (
+\begin_inset Formula $v\notin\partial\omega_{k}$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
+\end_inset
+
+ but 
+\begin_inset Formula $v\in\overline{\Omega}$
+\end_inset
+
+), there exists 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ such that
 \begin_inset Formula 
 \[
-n_{k}x=rn_{i}x+sn_{j}x\leq ra_{i}+sa_{j}=a_{k}\quad\forall\;x\in\overline{\omega_{i}}\cap\overline{\omega_{j}}.
+\lambda<\frac{a_{k}-n_{k}v}{\left|n_{k}\cdot w\right|}
 \]
 
 \end_inset
 
-That is, 
-\begin_inset Formula $\overline{\omega_{i}}\cap\overline{\omega_{j}}\subset\overline{\omega_{k}}$
+for all 
+\begin_inset Formula $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n_{k}\cdot w\neq0$
 \end_inset
 
 .
- Then 
-\begin_inset Formula $\overline{\omega_{i}}\cap\overline{\omega_{j}}\cap\overline{\omega_{k}}=\overline{\omega_{i}}\cap\overline{\omega_{j}}$
+ It follows that
+\begin_inset Formula 
+\[
+\lambda n_{k}\cdot w\leq\lambda\left|n_{k}\cdot w\right|<a_{k}-n_{k}v
+\]
+
+\end_inset
+
+and then
+\begin_inset Formula 
+\[
+n_{k}\cdot\left(v+\lambda w\right)<a_{k}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
 \end_inset
 
 .
- Hence 
-\begin_inset Formula $Q$
+ That is,
+\begin_inset Formula 
+\[
+v+\lambda w\in\omega_{k}\quad\mathcal{K}\backslash\mathcal{K}_{v}.
+\]
+
 \end_inset
 
- is reductible because 
-\begin_inset Formula $Q=\bigcap_{k'\in\mathcal{K}\backslash\left\{ k\right\} }\overline{\omega_{k'}}$
-\end_inset
-
- (
-\begin_inset Formula $\rightarrow\leftarrow$
-\end_inset
-
-).
- If 
-\begin_inset Formula $r,s\leq0$
-\end_inset
-
-, then 
-\begin_inset Formula $a_{k}\leq0$
-\end_inset
-
- (
-\begin_inset Formula $\rightarrow\leftarrow$
-\end_inset
-
-).
- In the case 
-\begin_inset Formula $r>0$
+Hence 
+\begin_inset Formula $v+\lambda w\in\overline{\Omega}$
 \end_inset
 
  and 
-\begin_inset Formula $s<0$
+\begin_inset Formula $v+\lambda w\in\partial\omega_{k}$
 \end_inset
 
-, it suffices to apply the same arguments to 
-\begin_inset Formula $n_{i}=\left(1/r\right)n_{k}+\left(-s/r\right)n_{j}$
-\end_inset
-
-.
- Therefore the vectors 
-\begin_inset Formula $n_{i},n_{j},n_{k}$
-\end_inset
-
- are linearly independent.
- We write this as 
-\begin_inset Formula $\mathrm{rank}\left(n_{i},n_{j},n_{k}\right)^{\top}=3$
+ for all 
+\begin_inset Formula $k\in\mathcal{K}_{v}$
 \end_inset
 
 .
- We can write
-\begin_inset Formula 
-\[
-\partial\omega_{i}\cap\partial\omega_{j}\cap\partial\omega_{k}=\left\{ v\right\} .
-\]
+ This contradicts 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:vert_face"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $n_{k}\cdot w=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\mathcal{\mathcal{K}}_{v}$
+\end_inset
+
+ implies that 
+\begin_inset Formula $w=\vec{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 

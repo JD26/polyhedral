@@ -4,8 +4,6 @@
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setlength{\parindent}{0bp}
-\usepackage{color}
-\definecolor{note_fontcolor}{rgb}{0.800781, 0.800781, 0.800781}
 \usepackage{babel}
 \usepackage{textcomp}
 \usepackage{mathtools}
@@ -16,13 +14,6 @@
  {hyperref}
 
 \makeatletter
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% The greyedout annotation environment
-\newenvironment{lyxgreyedout}
-  {\textcolor{note_fontcolor}\bgroup\ignorespaces}
-  {\ignorespacesafterend\egroup}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}[section]
@@ -58,74 +49,119 @@
 
 \section{Notation}
 
+Let $d\geq2$.
+
 The zero vector of $\mathbb{R}^{d}$ is denoted by $\vec{0}$.
 
 The unit sphere $\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert =1\right\} $
 is denoted by $S^{d-1}$.
+
+The closed ball $\left\{ x\in\mathbb{R}^{d}\mid\left\Vert x\right\Vert \leq R\right\} $
+is denoted by $B\bigl(\vec{0},R\bigl)$.
 
 Given a finite set of indices $\mathcal{K}$, $\left|\mathcal{K}\right|$
 denotes the cardinality of $\mathcal{K}$.
 
 \section{Polyhedrals and polytopes}
 
-Let us start with some definitions and facts. Our reference is \cite{ABrIP1983}.
-\begin{defn}
+Let us start with some definitions. Our reference is \cite{ABrIP1983}.
+\begin{defn}[\emph{A}ffine subspace]
 An \emph{affine} \emph{subspace} of $\mathbb{R}^{d}$ is either the
 empty set or a translate of a linear subspace, that is, a subset $x+L$
 where $x\in\mathbb{R}^{d}$ and $L$ is a linear subspace of $\mathbb{R}^{d}$.
 \end{defn}
 %
-\begin{defn}
+\begin{defn}[\emph{Dimension of a }affine subspace]
 The dimension of a non-empty affine subspace $A$ is the dimension
 of the linear subspace $L$ such that $A=x+L$. In other words, 
 \[
-\mathrm{dim}\,A\coloneqq\mathrm{dim}\,L.
+\dim A\coloneqq\dim L.
 \]
 \end{defn}
 %
-\begin{defn}
+\begin{defn}[\emph{Affine hull}]
 For any subset $M$ of $\mathbb{R}^{d}$, there is a smallest affine
 subspace containing $M$, namely, the intersection of all affine subspaces
 containing $M$. This affine subspace is called the \emph{affine hull}
-of M, and it is denoted by $\mathrm{aff}\,$M.
-\end{defn}
-%
-\begin{defn}
-Let $C$ be a convex set of $\mathbb{R}^{d}$. The dimension of $C$
-is defined as the dimension of the affine hull of $C$, that is 
+of M, and it is denoted by
 \[
-\mathrm{dim}\,C\coloneqq\mathrm{dim}\left(\mathrm{aff}\,C\right).
+\mathrm{aff}\,M.
 \]
 \end{defn}
 %
-\begin{defn}
+\begin{defn}[\emph{Dimension of a convex set}]
+Let $C$ be a convex set of $\mathbb{R}^{d}$. The dimension of $C$
+is defined as the dimension of the affine hull of $C$, that is 
+\[
+\dim C\coloneqq\dim\left(\mathrm{aff}\,C\right).
+\]
+\end{defn}
+%
+\begin{defn}[\emph{Convex hull}]
 For any subset $M$ of $\mathbb{R}^{d}$, there is a smallest convex
 set containing $M$, namely, the intersection of all convex sets containing
 $M$. This convex set is called the \emph{convex hull} of M, and it
-is denoted by $\mathrm{conv}\,$M. 
+is denoted by
+\[
+\mathrm{conv}\,M.
+\]
 \end{defn}
 %
-\begin{lyxgreyedout}
->\textcompwordmark > The following is a definition adapted to this
-context.%
-\end{lyxgreyedout}
-
-\begin{defn}
-Let $C$ be a closed convex set of $\mathbb{R}^{d}$. A point $x\in C$
-is called an \emph{extreme point} of $C$ if $C\backslash\left\{ x\right\} $
-is again convex. The set of extreme points of $C$ is denoted by $\mathrm{ext}\,C$.
+\begin{defn}[Supporting hyperplane]
+Let $C$ be a non-empty closed convex set in $\mathbb{R}^{d}$. By
+a \emph{supporting hyperplane} of $C$ we mean a hyperplane
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} ,\quad n\in\mathbb{R}^{d}\backslash\left\{ \vec{0}\right\} 
+\]
+uch that such that $C\subset\left\{ x\in\mathbb{R}^{d}\mid x\cdot n\leq a\right\} $
+and
+\[
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} \cap C\neq\emptyset.
+\]
 \end{defn}
 %
-\begin{thm}[Minkowski's Theorem]
-Let $C$ be a compact set in $\mathbb{R}^{d}$. Then
+\begin{defn}[Face]
+Let $C$ be a non-empty closed convex set in $\mathbb{R}^{d}$. A
+convex subset $F$ ($\neq C$ or $\emptyset$) of $C$ is called a
+\emph{k-face} of $C$ if for any distinct points $y,z\in C$ such
+that $\left\{ x\in\mathbb{R}^{d}\mid\lambda x+\left(1-\lambda\right)z,\,\lambda\in\left(0,1\right)\right\} \cap F\neq\emptyset$,
+we actually have
+\[
+\left\{ x\in\mathbb{R}^{d}\mid\lambda x+\left(1-\lambda\right)z,\,\lambda\in\left[0,1\right]\right\} \subset F.
+\]
+A face $F$ of $C$ is called \emph{$k$-face} if $\dim F=k$. Every
+face is closed.
+\end{defn}
+%
+\begin{defn}[Extreme point]
+Let $C$ be a non-empty closed convex set of $\mathbb{R}^{d}$. A
+point $x\in C$ is called an \emph{extreme point} of $C$ if $\left\{ x\right\} $
+is a face. The set of extreme points of $C$ is denoted by $\mathrm{ext}\,C$.
+\end{defn}
+%
+\begin{defn}[Exposed face]
+Let $C$ be a non-empty closed convex set of $\mathbb{R}^{d}$. A
+face $F$ of $C$ of the form 
+\[
+F=\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} \cap C,
+\]
+where $\left\{ x\in\mathbb{R}^{d}\mid x\cdot n=a\right\} $ is a supporting
+hyperplane of $C$, is called \emph{exposed face}.
+\end{defn}
+%
+Here an important result.
+\begin{thm}[{Minkowski's Theorem \cite[Thm. 5.10]{ABrIP1983}}]
+Let $C$ be a non-empty compact convex set in $\mathbb{R}^{d}$.
+Then
 \[
 C=\mathrm{conv}\left(\mathrm{ext}\,C\right).
 \]
 \end{thm}
 %
-\begin{defn}
-A subset $P$ of $\mathbb{R}^{d}$ is called \emph{polyhedral set}
-if $Q$ is the intersection of a finite number of closed half-spaces
+Next the definition and properties of a \textbf{polyhedral set}.
+\begin{defn}[Polyhedral set]
+\label{def:polyhe}A subset $P$ of $\mathbb{R}^{d}$ is called \emph{polyhedral
+set} if $Q$ is the intersection of a finite number of closed half-spaces
 or $P=\mathbb{R}^{d}$. Every polyhedral set is closed and convex.
 A polyhedral set $P\neq\mathbb{R}^{d}$ has the form
 \begin{equation}
@@ -146,31 +182,109 @@ P\subsetneq\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mat
 A representation which is not irreducible is called \emph{reducible}.
 \end{defn}
 %
-\begin{thm}
-Let $P$ be a polyhedral set in $\mathbb{R}^{d}$ with $\mathrm{dim}\,P=d$
-and $P\neq\mathbb{R}^{d}$. Suppose that $\left|\mathcal{K}\right|>1$
-in the representation (\ref{eq:rep}) of $P$. Then (\ref{eq:rep})
-is irreducible if and only if
+\begin{thm}[{\cite[Thm. 8.1]{ABrIP1983}}]
+\label{thm:irred}Let $P$ be a polyhedral set in $\mathbb{R}^{d}$
+with $\mathrm{dim}\,P=d$ and $P\neq\mathbb{R}^{d}$. Suppose that
+$\left|\mathcal{K}\right|>1$ in the representation (\ref{eq:rep})
+of $P$. Then (\ref{eq:rep}) is irreducible if and only if
 \[
-\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{j}=a_{j}\right\} \cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}<a_{k}\right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
 \]
 \end{thm}
 %
-In this case, each set $\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap Q$
-is called face of $Q$. It turns that every face of $Q$ is also a
-polyehedral set and the number of faces of $Q$ is finite.
-\begin{defn}
-A polytope is the convex hull of a non-empty finite set of $\mathbb{R}^{d}$. 
+\begin{thm}[{\cite[Thm. 8.2]{ABrIP1983}}]
+\label{thm:bound}Let $P$ be a polyhedral set in $\mathbb{R}^{d}$
+with $\mathrm{dim}\,P=d$ and $P\neq\mathbb{R}^{d}$. Then 
+\[
+\partial P=\bigcup_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}=a_{k}\right\} \cap P,
+\]
+each $\left(d-1\right)$-face of $P$ has the form
+\[
+\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap P
+\]
+(this implies that the number of $\left(d-1\right)$-faces of $P$
+is finite), and each set
+\[
+\left\{ x\in\mathbb{R}^{d}\left|\,x\cdot n_{j}=a_{j}\right.\right\} \cap P
+\]
+is a $\left(d-1\right)$-face if and only if the representation (\ref{eq:rep})
+of $P$ is irreducible.
+\end{thm}
+%
+\begin{thm}[{\cite[Thm. 8.3]{ABrIP1983}}]
+\label{thm:exis_f}Let $P$ be a polyhedral set in $\mathbb{R}^{d}$
+and let $F$ be a face of $P$. Then there is a $\left(d-1\right)$-face
+of $P$ containing $F$. 
+\end{thm}
+%
+Next the definition and properties of a \textbf{polytope}.
+\begin{defn}[Polytope]
+A polytope is the convex hull of a non-empty finite set of $\mathbb{R}^{d}$.
+Every polytope is compact.
 \end{defn}
 %
-A subset $P$ of $\mathbb{R}^{d}$ is a polytope if and only if it
-is a non-empty bounded polyehedral set. A subset $P$ of $\mathbb{R}^{d}$
-is a polytope if and only if it is a compact convex set with a finite
-number of extreme points. Therefore, a non-empty bounded polyhedral
-set $P$ is a compact convex set that can be represented as the convex
-hull of its finite set of extreme points. These extreme points are
-called vertices of $P$. A polytope of dimension $d$ is simple if
-each vertex of $P$ is contained in precisely $d$ faces (reescribir).
+\begin{thm}[{\cite[Thm. 7.1]{ABrIP1983}}]
+\label{thm:equiv}Let $P$ be a non-empty subset in $\mathbb{R}^{d}$.
+$P$ is a polytope if and only if $P$ is a compact convex set with
+a finite number of extreme points.
+\end{thm}
+%
+\begin{thm}
+\label{thm:prop}Let $P$ be a polytope in $\mathbb{R}^{d}$. Then
+\begin{itemize}
+\item $P=\mathrm{conv}\left(\mathrm{ext}\,P\right)$;
+\item every face $F$ of $P$ is also a polytope, and $\mathrm{ext}\,F=F\cap\mathrm{ext}\,P$;
+\item the number of faces of $P$ is finite;
+\item every face of $P$ is an exposed face.
+\end{itemize}
+\end{thm}
+%
+\begin{thm}[{\cite[Thm. 10.5]{ABrIP1983}}]
+Let $P$ be a polytope in $\mathbb{R}^{d}$ such that $\dim P=d$
+and let $x$ be a extreme point of $P$. Then there are at least $d$
+$1$-faces of $P$ containing $x$.
+\end{thm}
+%
+\begin{defn}[Simple polytope]
+Let $P$ be a polytope in $\mathbb{R}^{d}$ such that $\dim P=d$.
+$P$ is called a \emph{simple} if for $k=0,\ldots,d-1$ the number
+of $\left(d-1\right)$-faces of $P$ containing any $k$-face of $P$
+is equal to $d-k$.
+\end{defn}
+%
+\begin{thm}[{\cite[Thm. 12.11]{ABrIP1983}}]
+\label{thm:simple}Let $P$ be a polytope in $\mathbb{R}^{d}$ such
+that $\dim P=d$. $P$ is simple if and only if each extreme point
+of $P$ is contained in precisely $d$ $\left(d-1\right)$-faces. 
+\end{thm}
+%
+\begin{thm}[{\cite[Thm. 12.12]{ABrIP1983}}]
+Let $P$ be a polytope in $\mathbb{R}^{d}$ such that $\dim P=d$.
+$P$ is simple if and only if each extreme point of $P$ is a extreme
+point of precisely $d$ $1$-faces. 
+\end{thm}
+%
+\begin{thm}[{\cite[Thm. 12.14]{ABrIP1983}}]
+\label{thm:poly_face}Let $P$ be a polytope in $\mathbb{R}^{d}$
+such that $\dim P=d$. Suppose that $P$ is simple. Let $F_{1},\ldots,F_{d-k}$
+be $d-k$ $\left(d-1\right)$-faces of $P$, where $0\leq k\leq d-1$.
+Let
+\[
+F=\bigcap_{i=1}^{d-k}F_{i}
+\]
+and assume that $F\neq\emptyset$. Then $F$ is a $k$-face of $P$,
+and $F_{1},\ldots,F_{d-k}$ are the only facets of $P$ containg $F$.
+\end{thm}
+%
+Here the result that connects polyhedral sets and polytopes.
+\begin{thm}[{\cite[Thm. 9.2]{ABrIP1983}}]
+Let $P$ be a non-empty subset of $\mathbb{R}^{d}$. $P$ is a polytope
+if and only if $P$ is a bounded polyhedral set. 
+\end{thm}
+%
+\textbf{Notation.} Let $C$ be a non-empty closed convex set in $\mathbb{R}^{d}$.
+From now on, the $0$-faces, $1$-faces, and $\left(d-1\right)$-faces
+are called vertices, edges, and facets of $C$, respectively.
 
 \section{Barycentric coordinates}
 
@@ -303,6 +417,7 @@ Setting $x=w\in\mathcal{V}$ it follows that $\alpha_{w}=\alpha_{w}b_{w}\left(w\r
 \end{enumerate}
 \end{enumerate}
 %
+\newpage{}
 
 \section{Polyhedral domain and deformation function}
 
@@ -322,7 +437,7 @@ $a_{k}\coloneqq a_{k}\left(0\right)$ and $\widehat{\phi}_{k}\left(\cdot\right)\c
 For each $k\in\mathcal{K}$ and $t\in\mathbb{R}$, let $\omega_{k}\left(t\right)$
 be the affine set defined by
 \[
-\omega_{k}\left(t\right)\coloneqq\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\right\} .
+\omega_{k}\left(t\right)\coloneqq\bigl\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,t\right)<0\bigr\}.
 \]
 Denote $\omega_{k}\coloneqq\omega_{k}\left(0\right)$. Observe that
 $\omega_{k}\left(t\right)$ is one of the two open half-spaces determined
@@ -340,91 +455,143 @@ $\mathbb{R}^{d}$ defined by
 \]
 The set $\Omega_{t}$ is open because it is the finite intersection
 of open half-spaces. Denote 
-\[
-\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.
-\]
+\begin{equation}
+\Omega\coloneqq\Omega_{0}=\bigcap_{k\in\mathcal{K}}\omega_{k}.\label{eq:repr_dom}
+\end{equation}
 As 
 \[
 \overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}=\bigcap_{k\in\mathcal{K}}\left\{ x\in\mathbb{R}^{d}\mid x\cdot n_{k}\leq a_{k}\right\} 
 \]
 is a finite intersection of closed half-spaces, $\overline{\Omega}$
-is a polyhedral set by definition.
+is a polyhedral set by definition (see Definition \ref{def:polyhe}).
 \end{defn}
 %
 Consider the following four assumptions:
 \begin{enumerate}
-\item[{\crtcrossreflabel{$\mathbf{A1}$}[enu:A1].}] $a_{k}>0$ for all $k\in\mathcal{K}$.
-\end{enumerate}
-Assumption \ref{enu:A1} implies that $\overrightarrow{0}\in\Omega$.
-Indeed
-\[
-\widehat{\phi}_{k}\left(\overrightarrow{0},0\right)\coloneqq\overrightarrow{0}\cdot n_{k}-a_{k}=-a_{k}<0,
-\]
+\item[{\crtcrossreflabel{$\mathbf{A1}$}[enu:A1].}] $a_{k}>0$ for all $k\in\mathcal{K}$. This assumption implies the
+following:
+\begin{enumerate}
+\item $\vec{0}\in\Omega$. Indeed $\widehat{\phi}_{k}\bigl(\vec{0},0\bigl)=-a_{k}<0$
 and hence
 \[
-\vec{0}\in\omega_{k}=\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\right\} \quad\forall\;k\in\mathcal{K}.
+\vec{0}\in\omega_{k}=\bigl\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{k}\left(x,0\right)<0\bigr\}\quad\forall\;k\in\mathcal{K}.
 \]
-Moreover, one can deduce that $\dim\,\overline{\Omega}=d$. Indeed,
-since $\overrightarrow{0}$ is a interior point of $\overline{\Omega}$,
-there exists a point $y\in\overline{\Omega}\backslash\left\{ \vec{0}\right\} $
+Thus $\overline{\Omega}$ is not-empty.
+\item $\dim\overline{\Omega}=d$. Indeed, since $\vec{0}$ is a interior
+point of $\overline{\Omega}$, there exists a point $y\in\overline{\Omega}\backslash\bigl\{\vec{0}\bigr\}$
 in the line segment joining $\vec{0}$ and any point $x\in\mathbb{R}^{d}$.
-Thus $x\in\mathrm{aff}\left\{ \vec{0},y\right\} $, and hence $x\in\mathrm{aff}\,\overline{\Omega}$
-(because $\mathrm{aff}\left\{ \overrightarrow{0},y\right\} \subset\mathrm{aff}\,\overline{\Omega}$).
+Thus $x\in\mathrm{aff}\bigl\{\vec{0},y\bigr\}$, and hence $x\in\mathrm{aff}\,\overline{\Omega}$
+(because $\mathrm{aff}\bigl\{\vec{0},y\bigr\}\subset\mathrm{aff}\,\overline{\Omega}$).
 Therefore $\mathbb{R}^{d}\subset\mathrm{aff}\,\overline{\Omega}$.
 It follows that $\mathrm{aff}\,\overline{\Omega}=\mathbb{R}^{d}$
-and $\dim\,\mathrm{aff}\,\overline{\Omega}=\dim\,\mathbb{R}^{d}=d$.
-\begin{enumerate}
-\item[{\crtcrossreflabel{$\mathbf{A2}$}[enu:A2].}] There exists a constant $R>0$ such that $\overline{\Omega}\subset B\left(\overrightarrow{0},R\right)$,
-that is, $\overline{\Omega}$ is bounded.
+and $\dim\left(\mathrm{aff}\,\overline{\Omega}\right)=\dim\mathbb{R}^{d}=d$.
 \end{enumerate}
-Moreover $\overline{\Omega}$ is not empty. Therefore $\overline{\Omega}$
-is a polytope and
+\item[{\crtcrossreflabel{$\mathbf{A2}$}[enu:A2].}] There exists a constant $R>0$ such that $\overline{\Omega}\subset B\bigl(\vec{0},R\bigl)$.
+This assumption implies the following:
+\begin{enumerate}
+\item $\overline{\Omega}$ is a polytope. Indeed, as $\overline{\Omega}$
+is not-empty polyhedral set, if $\overline{\Omega}$ is bounded, then
+$\overline{\Omega}$ is a polytope (see Theorem \ref{thm:equiv}).
+Hence, there exists a finite set $\mathcal{V}$ of vertices ($0$-faces)
+of $\overline{\Omega}$ and
 \[
-\overline{\Omega}=\mathrm{conv}\left\{ v\left|\,v\in\mathcal{V}\right.\right\} ,
+\overline{\Omega}=\mathrm{conv}\,\mathcal{V}
 \]
-where $\mathcal{V}$ is the finite set of vertices (extreme points)
-of $\overline{\Omega}$. See Cor. 8.7 in \cite{ABrIP1983}.
-\begin{enumerate}
-\item[{\crtcrossreflabel{$\mathbf{A3}$}[enu:A3].}] $\partial\omega_{j}\cap\mathrm{int}\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\overline{\omega_{k}}\neq\emptyset$
-$\forall\;j\in\mathcal{K}$. Since $\overline{\Omega}$ is bounded,
-$\left|\mathcal{K}\right|>1$. Moreover, $\dim\overline{\Omega}=3$.
-Thus, this assumption is equivalent to impose that the representation
-$\overline{\Omega}=\bigcap_{k\in\mathcal{K}}\overline{\omega_{k}}$
-is irreducible. Then, the boundary of $\overline{\Omega}$ is $\bigcup_{k\in\mathcal{K}}\partial\omega_{k}\cap\overline{\Omega}$
-and the faces of $\overline{\Omega}$ are the sets $\partial\omega_{k}\cap\overline{\Omega}$,
-$k\in\mathcal{K}$. See Thm. 8.1, 8.2 in \cite{ABrIP1983}.
-\item[{\crtcrossreflabel{$\mathbf{A4}$}[enu:A4].}] Each $v$ is contained in precisely $3$ faces. As $\dim\overline{\Omega}=3$,
-this assumption is equivalent to impose that $\overline{\Omega}$
-is simple. See Thm. 2.11 in \cite{ABrIP1983}. Given $v\in\mathcal{V}$,
-denote by $\mathcal{I}_{v}\subset\mathcal{K}$ the subset of indices
-such that $v\in\partial\omega_{k}$ $\forall$ $k\in\mathcal{I}_{v}$.
-Clearly $\left|\mathcal{I}_{v}\right|=3$.
+(see Theorems \ref{thm:equiv} and \ref{thm:prop}).
+\item $\partial\Omega=\bigcup_{k\in\mathcal{K}}\partial\omega_{k}\cap\overline{\Omega}$
+(see Theorem \ref{thm:bound}).
+\item Moreover, if $\overline{\Omega}$ is bounded, $\left|\mathcal{K}\right|$
+must be greater than $1$. In fact, since $\overline{\Omega}$ is
+a polytope and $\dim\overline{\Omega}=d$, $\overline{\Omega}$ has
+at least $d+1$ $\left(d-1\right)$-faces (Corollary 9.4.).
 \end{enumerate}
-%
-(non-degeneracy of vertices) Let $v\in\mathcal{V}$ and let $\partial\omega_{i}\cap\overline{\Omega}$,
-$\partial\omega_{j}\cap\overline{\Omega}$ and $\partial\omega_{k}\cap\overline{\Omega}$
-be the faces containing to $v$. Suppose that $n_{k}=rn_{i}+sn_{j}$
-with $r,s\geq0$. Then
+\item[{\crtcrossreflabel{$\mathbf{A3}$}[enu:A3].}] Assume that
 \[
-a_{k}=n_{k}v=rn_{i}v+sn_{j}v=ra_{i}+sa_{j}
+\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{j}\left(x,0\right)=0,\,\widehat{\phi}_{k}\left(x,0\right)<0\;\forall\;k\in\mathcal{K}\backslash\left\{ j\right\} \right\} \neq\emptyset\quad\forall\;j\in\mathcal{K}.
+\]
+This assumption implies the following:
+\begin{enumerate}
+\item As $\overline{\Omega}$ is bounded ($\overline{\Omega}\neq\mathbb{R}^{d}$),
+$\left|\mathcal{K}\right|>1$, $\dim\overline{\Omega}=d$, this assumption
+implies that the representation (\ref{eq:repr_dom}) of $\overline{\Omega}$
+is irreducible (see Theorem \ref{thm:irred}).
+\item The $\left(d-1\right)$-faces of $\overline{\Omega}$ are the sets
+$\partial\omega_{k}\cap\overline{\Omega}$, $k\in\mathcal{K}$ (see
+Theorem \ref{thm:bound}).
+\end{enumerate}
+Note that
+\[
+\left\{ x\in\mathbb{R}^{d}\mid\widehat{\phi}_{j}\left(x,0\right)=0,\,\widehat{\phi}_{k}\left(x,0\right)<0\;\forall\;k\in\mathcal{K}\backslash\left\{ j\right\} \right\} =\partial\omega_{j}\cap\bigcap_{k\in\mathcal{K}\backslash\left\{ j\right\} }\omega_{k}.
+\]
+
+\item[{\crtcrossreflabel{$\mathbf{A4}$}[enu:A4].}] Each vertex of $\overline{\Omega}$ is contained in precisely $d$
+$\left(d-1\right)$-faces.
+\begin{enumerate}
+\item First, recall that for all $v\in\mathcal{V}$ there is $k\in\mathcal{K}$
+such that $v\in\partial\omega_{k}$ (see Theorem \ref{thm:exis_f}),
+so, this is a precisely an assumption.
+\item Given $v\in\mathcal{V}$, denote by $\mathcal{K}_{v}$ the subset
+of $\mathcal{K}$ such that $\left\{ \partial\omega_{k}\cap\overline{\Omega}\mid k\in\mathcal{K}_{v}\right\} $
+are the $d$ $\left(d-1\right)$-faces contaning $v$. This assumption
+imposes that $\left|\mathcal{\mathcal{K}}_{v}\right|=d$. Thus
+\[
+v\in\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}
 \]
 and
 \[
-n_{k}x=rn_{i}x+sn_{j}x\leq ra_{i}+sa_{j}=a_{k}\quad\forall\;x\in\overline{\omega_{i}}\cap\overline{\omega_{j}}.
+v\notin\partial\omega_{k}\quad\forall\;k\in\mathcal{K}\backslash\mathcal{K}_{v}.
 \]
-That is, $\overline{\omega_{i}}\cap\overline{\omega_{j}}\subset\overline{\omega_{k}}$.
-Then $\overline{\omega_{i}}\cap\overline{\omega_{j}}\cap\overline{\omega_{k}}=\overline{\omega_{i}}\cap\overline{\omega_{j}}$.
-Hence $Q$ is reductible because $Q=\bigcap_{k'\in\mathcal{K}\backslash\left\{ k\right\} }\overline{\omega_{k'}}$
-($\rightarrow\leftarrow$). If $r,s\leq0$, then $a_{k}\leq0$ ($\rightarrow\leftarrow$).
-In the case $r>0$ and $s<0$, it suffices to apply the same arguments
-to $n_{i}=\left(1/r\right)n_{k}+\left(-s/r\right)n_{j}$. Therefore
-the vectors $n_{i},n_{j},n_{k}$ are linearly independent. We write
-this as $\mathrm{rank}\left(n_{i},n_{j},n_{k}\right)^{\top}=3$. We
-can write
+\item Furthermore, as $\overline{\Omega}$ is a polytope and $\dim\overline{\Omega}=d$,
+this assumption implies that $\overline{\Omega}$ is simple (see Theorem
+\ref{thm:simple}), and hence $\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}$
+is a single point (see Theorem \ref{thm:poly_face}). As $v\in\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}$
+by assumption, it follows that
+\begin{equation}
+\left\{ v\right\} =\bigcap_{k\in\mathcal{K}_{v}}\partial\omega_{k}\cap\overline{\Omega}.\label{eq:vert_face}
+\end{equation}
+\end{enumerate}
+\end{enumerate}
+%
+The non-degeneracy of vertices is a consequence of Assumption \ref{enu:A4}.
+\begin{prop}
+$\mathrm{rank}\left(n_{k}^{\top}\right)_{k\in\mathcal{\mathcal{K}}_{v}}=d$
+for all $v\in\mathcal{V}$.
+\end{prop}
+%
+\begin{proof}
+Let $v\in\mathcal{V}$. Suppose that there exists $w\in\mathbb{R}^{d}$
+such that $w\neq\vec{0}$ and $n_{k}\cdot w=0$ for all $k\in\mathcal{\mathcal{K}}_{v}$.
+Inmediately, we have $n_{k}\cdot\left(v+\lambda w\right)=a_{k}$ for
+all $k\in\mathcal{\mathcal{K}}_{v}$ and all $\lambda\in\mathbb{R}$.
+That is,
 \[
-\partial\omega_{i}\cap\partial\omega_{j}\cap\partial\omega_{k}=\left\{ v\right\} .
+v+\lambda w\in\partial\omega_{k}\quad\forall\;k\in\mathcal{K}_{v},\;\lambda\in\mathbb{R}.
 \]
-
+Since $n_{k}v<a_{k}$ for all $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
+($v\notin\partial\omega_{k}$ for all $k\in\mathcal{K}\backslash\mathcal{K}_{v}$
+but $v\in\overline{\Omega}$), there exists $\lambda$ such that
+\[
+\lambda<\frac{a_{k}-n_{k}v}{\left|n_{k}\cdot w\right|}
+\]
+for all $k\in\mathcal{K}\backslash\mathcal{K}_{v}$ such that $n_{k}\cdot w\neq0$.
+It follows that
+\[
+\lambda n_{k}\cdot w\leq\lambda\left|n_{k}\cdot w\right|<a_{k}-n_{k}v
+\]
+and then
+\[
+n_{k}\cdot\left(v+\lambda w\right)<a_{k}
+\]
+for all $k\in\mathcal{K}\backslash\mathcal{K}_{v}$. That is,
+\[
+v+\lambda w\in\omega_{k}\quad\mathcal{K}\backslash\mathcal{K}_{v}.
+\]
+Hence $v+\lambda w\in\overline{\Omega}$ and $v+\lambda w\in\partial\omega_{k}$
+for all $k\in\mathcal{K}_{v}$. This contradicts (\ref{eq:vert_face}).
+Therefore $n_{k}\cdot w=0$ for all $k\in\mathcal{\mathcal{K}}_{v}$
+implies that $w=\vec{0}$.
+\end{proof}
+%
 \begin{prop}
 $\exists$ $\tau>0$ such that $\forall$ $v\in\mathcal{V}$ $\exists!$
 $z_{v}:\left(-\tau,\tau\right)\rightarrow\mathbb{R}^{d}$ satisfying
