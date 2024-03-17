@@ -3894,6 +3894,14 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
+a_{k}\left(t\right)=\lambda_{k}n_{k}\left(t\right)\cdot n_{k}\left(0\right)+t\delta\lambda_{k}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
 \dot{n}_{k}\left(0\right)=\delta\alpha_{k}\left(\begin{array}{c}
 -\sin\left(\alpha_{k}\right)\\
 \cos\left(\alpha_{k}\right)
@@ -3929,7 +3937,24 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\int_{\partial\Omega}\frac{\left|\partial_{n}u\right|^{2}}{2}\theta_{n}=\sum_{k\in\mathcal{K}}\delta\lambda_{k}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}-\delta\alpha_{k}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{i}_{k}-\delta\beta_{k}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{j}_{k}
+J\left(\Omega\right)=-\int_{\Omega}u=-\int_{\Omega}\left|\nabla u\right|^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+-\Delta u & =1\\
+u & =0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{\Omega}\nabla u\nabla v=\int_{\Omega}v\quad v\in H_{0}^{1}\left(\Omega\right)
 \]
 
 \end_inset
@@ -3937,7 +3962,34 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\delta\lambda_{k}=-\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}
+\int_{\Omega}1=C
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+DJ_{1}\left(\Omega\right)\left(\theta\right)+mDJ_{2}\left(\Omega\right)\left(\theta\right) & =\int_{\partial\Omega}\left(-\left|\partial_{n}u\right|^{2}+m\right)\theta_{n}=0\\
+J_{2}\left(\Omega\right) & -C=\int_{\Omega}1-C=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int_{\partial\Omega}\left(-\left|\partial_{n}u\right|^{2}+m\right)\theta_{n} & =\sum_{k\in\mathcal{K}}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(m-\left|\partial_{n}u\right|^{2}\right)\left(-x\cdot\dot{n}_{k}\left(0\right)+\dot{a}_{k}\left(0\right)\right)\\
+ & =\sum_{k\in\mathcal{K}}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(\left|\partial_{n}u\right|^{2}-m\right)x\cdot\dot{n}_{k}\left(0\right)+\dot{a}_{k}\left(0\right)\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(m-\left|\partial_{n}u\right|^{2}\right)\\
+ & =\sum_{k\in\mathcal{K}}\delta\alpha_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(\left|\partial_{n}u\right|^{2}-m\right)x\cdot\mathbf{i}_{k}+\delta\beta_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(\left|\partial_{n}u\right|^{2}-m\right)x\cdot\mathbf{j}_{k}+\delta\lambda_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(m-\left|\partial_{n}u\right|^{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta\alpha_{k}=\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(m-\left|\partial_{n}u\right|^{2}\right)x\cdot\mathbf{i}_{k}
 \]
 
 \end_inset
@@ -3945,7 +3997,18 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\delta\alpha_{k}=\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{i}_{k}
+\delta\beta_{k}=\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(m-\left|\partial_{n}u\right|^{2}\right)x\cdot\mathbf{j}_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\lambda_{k}=L\int_{\partial\omega_{k}\cap\overline{\Omega}}\left(\left|\partial_{n}u\right|^{2}-m\right)
 \]
 
 \end_inset
@@ -3953,7 +4016,15 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\delta\beta_{k}=\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{j}_{k}
+\delta m=\pi-\int_{\Omega}1
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+\int_{\partial\Omega}\left(-\left|\partial_{n}u\right|^{2}+m\right)\theta_{n}=-\sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(\delta\alpha_{k},\delta\beta_{k},L^{-1}\delta\lambda_{k}\right)
 \]
 
 \end_inset
@@ -3961,7 +4032,7 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\int_{\partial\Omega}\frac{\left|\partial_{n}u\right|^{2}}{2}\theta_{n}<0
+J\left(\Omega\right)=-\int_{\Omega}u+m\int_{\Omega}1
 \]
 
 \end_inset
@@ -3969,27 +4040,15 @@ a_{k}\left(t\right)=\left(\lambda_{k}+t\delta\lambda_{k}\right)n_{k}\left(t\righ
 
 \begin_inset Formula 
 \[
-\lambda_{k}^{1}=\lambda_{k}^{0}-\tilde{t}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}
+\frac{\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}}{\int_{\partial\omega_{k}\cap\overline{\Omega}}1}=m
 \]
 
 \end_inset
 
 
-\begin_inset Formula 
-\[
-\alpha_{k}^{1}=\alpha_{k}^{0}+\tilde{t}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{i}_{k}
-\]
+\end_layout
 
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\beta_{k}^{1}=\beta_{k}^{0}+\tilde{t}\int_{f_{k}}\frac{\left|\partial_{n}u\right|^{2}}{2}x\cdot\mathbf{j}_{k}
-\]
-
-\end_inset
-
+\begin_layout Standard
 Assumptions.
 \end_layout
 
@@ -5119,6 +5178,87 @@ Let
 \end_inset
 
 ?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+DJ\left(\Omega\right)\left(\theta\right) & =\int_{\partial\Omega}\left|\partial_{n}u\right|^{2}\theta_{n}\\
+ & =\sum_{k\in\mathcal{K}}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}\left(-x\cdot\dot{n}_{k}\left(0\right)+\dot{a}_{k}\left(0\right)\right)\\
+ & =\sum_{k\in\mathcal{K}}\delta\lambda_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}-\delta\alpha_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{i}_{k}-\delta\beta_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{j}_{k}\\
+ & =\sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(-\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{i}_{k},-\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{j}_{k},\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}\right)
+\end{align*}
+
+\end_inset
+
+If
+\begin_inset Formula 
+\begin{align*}
+\delta\alpha_{k} & =A_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{i}_{k}\\
+\delta\beta_{k} & =B_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{j}_{k}\\
+\delta\lambda_{k} & =-L_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}
+\end{align*}
+
+\end_inset
+
+then
+\begin_inset Formula 
+\begin{align*}
+DJ\left(\Omega\right)\left(\theta\right) & =-\sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(A_{k}^{-1}\delta\alpha_{k},B_{k}^{-1}\delta\beta_{k},L_{k}^{-1}\delta\lambda_{k}\right)\\
+ & \leq-\min_{k}\left\{ A_{k}^{-1},B_{k}^{-1},L_{k}^{-1}\right\} \sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)
+\end{align*}
+
+\end_inset
+
+It follows that there exists 
+\begin_inset Formula $t$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+J\left(\Omega_{t}\right)\leq J\left(\Omega\right)-t\gamma\min_{k}\left\{ A_{k}^{-1},B_{k}^{-1},L_{k}^{-1}\right\} \sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $0<\gamma<1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+DJ\left(\Omega\right)\left(\theta\right) & =-\int_{\partial\Omega}\left|\partial_{n}u\right|^{2}\theta_{n}\\
+ & =\sum_{k\in\mathcal{K}}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}\left(x\cdot\dot{n}_{k}\left(0\right)-\dot{a}_{k}\left(0\right)\right)\\
+ & =\sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{i}_{k},\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{j}_{k},-\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}\right)
+\end{align*}
+
+\end_inset
+
+If
+\begin_inset Formula 
+\begin{align*}
+\delta\alpha_{k} & =-A_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{i}_{k}\\
+\delta\beta_{k} & =-B_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}x\cdot\mathbf{j}_{k}\\
+\delta\lambda_{k} & =L_{k}\int_{\partial\omega_{k}\cap\overline{\Omega}}\left|\partial_{n}u\right|^{2}
+\end{align*}
+
+\end_inset
+
+then
+\begin_inset Formula 
+\begin{align*}
+DJ\left(\Omega\right)\left(\theta\right) & =-\sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(A_{k}^{-1}\delta\alpha_{k},B_{k}^{-1}\delta\beta_{k},L_{k}^{-1}\delta\lambda_{k}\right)\\
+ & \leq-\min_{k}\left\{ A_{k}^{-1},B_{k}^{-1},L_{k}^{-1}\right\} \sum_{k\in\mathcal{K}}\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)\cdot\left(\delta\alpha_{k},\delta\beta_{k},\delta\lambda_{k}\right)
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
